@@ -1,6 +1,7 @@
 using Npgsql;
 using Oscars.Backend.Dtos;
 using Oscars.Backend.Model;
+using Oscars.Backend.Utils;
 
 namespace Oscars.Backend.Service
 {
@@ -74,6 +75,7 @@ namespace Oscars.Backend.Service
 
 			if (reader.Read())
 			{
+				var parser = new Parser();
 				pollDto = new PollDto
 				{
 					Id = pollId,
@@ -81,8 +83,15 @@ namespace Oscars.Backend.Service
 					Title = reader.GetString(2),
 					Description = reader.GetString(2),
 					Created_at = reader.GetDateTime(4),
-					Updated_at = reader.GetDateTime(5),
 				};
+				if (reader.IsDBNull(5))
+				{
+					pollDto.Updated_at = null;
+				}
+				else
+				{
+					pollDto.Updated_at = reader.GetDateTime(5);
+				}
 			}
 
 			return pollDto;

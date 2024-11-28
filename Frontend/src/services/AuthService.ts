@@ -1,5 +1,3 @@
-import { Navigate } from "react-router-dom";
-
 interface LoginCredentials {
   username: string;
   password: string;
@@ -9,7 +7,7 @@ interface RegisterDetails {
   username: string;
   email: string;
   password: string;
-  role: "Admin" | "User";
+  role: "admin" | "user";
 }
 
 interface ApiResponse<T> {
@@ -20,6 +18,7 @@ interface ApiResponse<T> {
 
 const BASE_URL = "http://localhost:5166/api";
 
+// Function to login and store the JWT token in localStorage
 export const login = async (credentials: LoginCredentials): Promise<string> => {
   try {
     const response = await fetch(`${BASE_URL}/auth/login`, {
@@ -28,6 +27,7 @@ export const login = async (credentials: LoginCredentials): Promise<string> => {
       body: JSON.stringify(credentials),
     });
 
+    // Check if the response is not ok (error status)
     if (!response.ok) {
       const error = await response.json();
       throw new Error(error.message || "Failed to login");
@@ -35,25 +35,33 @@ export const login = async (credentials: LoginCredentials): Promise<string> => {
 
     const contentType = response.headers.get("Content-Type") || "";
 
+    // If the response is JSON, get the token from it
+    let token = "";
     if (contentType.includes("application/json")) {
       const result = await response.json();
-      return result.token;
+      token = result.token; // Assuming the response has a 'token' property
     } else {
-      const token = await response.text();
-      return token;
+      // If the response is plain text
+      token = await response.text();
     }
+
+    // Store the token in localStorage for persistence
+    localStorage.setItem("auth_token", token);
+
+    // Return the token (optional)
+    return token;
   } catch (error: unknown) {
     console.error("Login error:", error);
     if (error instanceof Error) {
-      throw error;
+      throw error; // rethrow error to be handled in component
     } else {
       throw new Error("An unknown error occurred during login");
     }
   }
 };
 
-
-export const register = async (userDetails: RegisterDetails) => {
+// Function to register a new user
+export const register = async (userDetails: RegisterDetails): Promise<ApiResponse<RegisterDetails>> => {
   try {
     const response = await fetch(`${BASE_URL}/auth/register`, {
       method: "POST",
@@ -61,6 +69,7 @@ export const register = async (userDetails: RegisterDetails) => {
       body: JSON.stringify(userDetails),
     });
 
+    // Handle if registration fails
     if (!response.ok) {
       const contentType = response.headers.get("Content-Type") || "";
 
@@ -74,8 +83,9 @@ export const register = async (userDetails: RegisterDetails) => {
       }
     }
 
-    // Assume successful response contains JSON
-    return await response.json();
+    // Assume successful response contains JSON data (like user info or confirmation)
+    const data = await response.json();
+    return { data };
   } catch (error: unknown) {
     console.error("Registration error:", error);
     if (error instanceof Error) {
@@ -84,4 +94,17 @@ export const register = async (userDetails: RegisterDetails) => {
       throw new Error("An unknown error occurred during registration");
     }
   }
+};
+
+// Function to check if user is already logged in based on token in localStorage
+export const isAuthenticated = (): boolean => {
+  const token = localStorage.getItem("auth_token");
+  return token !== null; // Return true if token exists, meaning user is logged in
+};
+
+// Function to logout the user
+export const logout = (): void => {
+  localStorage.removeItem("auth_token");
+  // Optionally, you can redirect to login page after logging out
+  window.location.href = "/login";
 };

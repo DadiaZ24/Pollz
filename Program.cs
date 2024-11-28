@@ -73,9 +73,7 @@ builder.Services.AddScoped<IAuthService>(provider =>
     return new AuthService(connectionString, jwtSettings);
 });
 
-
-
-builder.Services.AddScoped<CategoryService>(static provider =>
+builder.Services.AddScoped<AnswerService>(static provider =>
 {
     var configuration = provider.GetRequiredService<IConfiguration>();
     var connectionString = configuration.GetConnectionString("DefaultConnection");
@@ -83,8 +81,65 @@ builder.Services.AddScoped<CategoryService>(static provider =>
     {
         throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
     }
-    return new CategoryService(connectionString);
+    return new AnswerService(connectionString);
 });
+
+builder.Services.AddScoped<AuthService>(static provider =>
+{
+    var configuration = provider.GetRequiredService<IConfiguration>();
+    var connectionString = configuration.GetConnectionString("DefaultConnection");
+    if (string.IsNullOrEmpty(connectionString))
+    {
+        throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
+    }
+    var jwtSettings = provider.GetRequiredService<IOptions<JwtSettings>>();
+    return new AuthService(connectionString, jwtSettings);
+});
+
+builder.Services.AddScoped<PollService>(static provider =>
+{
+    var configuration = provider.GetRequiredService<IConfiguration>();
+    var connectionString = configuration.GetConnectionString("DefaultConnection");
+    if (string.IsNullOrEmpty(connectionString))
+    {
+        throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
+    }
+    return new PollService(connectionString);
+});
+
+builder.Services.AddScoped<QuestionService>(static provider =>
+{
+    var configuration = provider.GetRequiredService<IConfiguration>();
+    var connectionString = configuration.GetConnectionString("DefaultConnection");
+    if (string.IsNullOrEmpty(connectionString))
+    {
+        throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
+    }
+    return new QuestionService(connectionString);
+});
+
+builder.Services.AddScoped<UserService>(static provider =>
+{
+    var configuration = provider.GetRequiredService<IConfiguration>();
+    var connectionString = configuration.GetConnectionString("DefaultConnection");
+    if (string.IsNullOrEmpty(connectionString))
+    {
+        throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
+    }
+    return new UserService(connectionString);
+});
+
+builder.Services.AddScoped<VoteService>(static provider =>
+{
+    var configuration = provider.GetRequiredService<IConfiguration>();
+    var connectionString = configuration.GetConnectionString("DefaultConnection");
+    if (string.IsNullOrEmpty(connectionString))
+    {
+        throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
+    }
+    return new VoteService(connectionString);
+});
+
 
 builder.Services.AddScoped<VoterService>(static provider =>
 {
@@ -95,17 +150,6 @@ builder.Services.AddScoped<VoterService>(static provider =>
         throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
     }
     return new VoterService(connectionString);
-});
-
-builder.Services.AddScoped<NomineeService>(static provider =>
-{
-    var configuration = provider.GetRequiredService<IConfiguration>();
-    var connectionString = configuration.GetConnectionString("DefaultConnection");
-    if (string.IsNullOrEmpty(connectionString))
-    {
-        throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
-    }
-    return new NomineeService(connectionString);
 });
 
 builder.Services.AddScoped<IUserService>(static provider =>

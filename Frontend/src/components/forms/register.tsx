@@ -7,7 +7,7 @@ interface RegisterFormState {
   username: string;
   email: string;
   password: string;
-  role: "Admin" | "User"; // Ensuring role is one of these two options
+  role: "admin" | "user"; // Ensuring role is one of these two options
 }
 
 const RegisterForm: React.FC = () => {
@@ -15,7 +15,7 @@ const RegisterForm: React.FC = () => {
     username: "",
     email: "",
     password: "",
-    role: "User",
+    role: "user",
   });
   const [error, setError] = useState<string | null>(null);
 
@@ -87,8 +87,8 @@ const RegisterForm: React.FC = () => {
             onChange={handleInputChange}
             className="w-full p-2 border rounded-lg"
           >
-            <option value="User">User</option>
-            <option value="Admin">Admin</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
           </select>
         </div>
         <button

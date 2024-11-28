@@ -10,7 +10,8 @@ namespace Oscars.Backend.Service
 
         public Voter Create(VoterDto voterDto)
         {
-            var uniqueCode = new UniqueCode {
+            var uniqueCode = new UniqueCode
+            {
                 Id = 0,
                 VoterId = 0,
                 Code = ""
@@ -94,9 +95,9 @@ namespace Oscars.Backend.Service
                 var voterDto = new VoterWithCodeDto
                 {
                     Id = reader.GetInt32(0),
-                    PollId = reader.GetInt32(1),
-                    Name = reader.GetString(2),
-                    Code = reader.GetString(3),
+                    PollId = pollId,
+                    Name = reader.GetString(1),
+                    Code = reader.GetString(2),
                 };
                 votersDto.Add(voterDto);
             }

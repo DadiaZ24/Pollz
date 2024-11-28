@@ -27,7 +27,7 @@ namespace Oscars.Backend.Service
             using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
 
-            using var cmd = new NpgsqlCommand("INSERT INTO management.categories (name, description, nominees) VALUES (@1, @2, @3) RETURNING *", connection);
+            using var cmd = new NpgsqlCommand("INSERT INTO operations.questions (title, description, poll_id) VALUES (@1, @2, @3) RETURNING *", connection);
             cmd.Parameters.AddWithValue("@1", question.Title != null ? question.Title : DBNull.Value);
             cmd.Parameters.AddWithValue("@2", question.Description != null ? question.Description : DBNull.Value);
             cmd.Parameters.AddWithValue("@3", question.Poll_id);

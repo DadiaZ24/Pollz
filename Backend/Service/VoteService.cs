@@ -12,7 +12,7 @@ namespace Oscars.Backend.Service
             using var connection = new NpgsqlConnection(_connectionString);
             await connection.OpenAsync();
 
-            using var cmd = new NpgsqlCommand("INSERT INTO operations.votes (answer_id, question_id, voter_id, created_at) VALUES (@1, @2, @3, @4)", connection);
+            using var cmd = new NpgsqlCommand("INSERT INTO operations.votes (answer_id, question_id, voter_id) VALUES (@1, @2, @3)", connection);
             cmd.Parameters.AddWithValue("@1", voteRequestDto.AnswerId);
             cmd.Parameters.AddWithValue("@2", voteRequestDto.QuestionId);
             cmd.Parameters.AddWithValue("@3", voteRequestDto.VoterId);
@@ -56,7 +56,7 @@ namespace Oscars.Backend.Service
             using var connection = new NpgsqlConnection(_connectionString);
             await connection.OpenAsync();
 
-            using var cmd = new NpgsqlCommand("SELECT a.id, a.name, COUNT(v.id) FROM operations.answers a LEFT JOIN operations.votes v ON a.id = v.answer_id WHERE v.question_id = @1 GROUP BY a.id ORDER BY v.id DESC", connection);
+            using var cmd = new NpgsqlCommand("SELECT a.id, a.title, COUNT(v.id) FROM operations.answers a LEFT JOIN operations.votes v ON a.id = v.answer_id WHERE v.question_id = @1 GROUP BY a.id ORDER BY COUNT(v.id) DESC", connection);
             cmd.Parameters.AddWithValue("@1", questionId);
 
             using var reader = await cmd.ExecuteReaderAsync();
@@ -73,6 +73,5 @@ namespace Oscars.Backend.Service
 
             return results;
         }
-    
     }
 }

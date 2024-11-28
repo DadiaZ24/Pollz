@@ -26,7 +26,7 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
     try {
       const token = await login(form);
-      navigate("/categories");
+      navigate("/polls");
 
       localStorage.setItem("authToken", token);
     } catch (err: unknown) {

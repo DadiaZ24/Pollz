@@ -1,9 +1,10 @@
 import React from "react";
+import logo from "../assets/logo.png";
 
 const Header: React.FC = () => (
-  <header className="bg-blue-600 text-white p-4 shadow-md">
+  <header className="bg-blue-600 text-white p-10 shadow-md">
     <div className="container mx-auto flex justify-between items-center">
-      <h1 className="text-xl font-semibold">Oscars Voting</h1>
+      <img src={logo} alt="logo" />
     </div>
   </header>
 );
