@@ -8,7 +8,7 @@ namespace Oscars.Backend.Service
     {
         private readonly string _connectionString = connectionString;
 
-        public Voter? Create(VoterDto voterDto)
+        public Voter Create(VoterDto voterDto)
         {
             var uniqueCode = new UniqueCode {
                 Id = 0,
