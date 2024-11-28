@@ -14,6 +14,19 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//COMMAND TO MIGRATE DATABASE
+if (args.Length > 0 && args[0] == "migrate")
+{
+    var scriptPath = args.Length > 1 ? args[1] : "./Data/01-Migration.sql";
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    if (string.IsNullOrEmpty(connectionString))
+    {
+        throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
+    }
+    await DBConnection.RunMigrationsAsync(connectionString, scriptPath);
+    return;
+}
+
 builder.Services.AddLogging(config =>
 {
     config.AddConsole();
@@ -72,6 +85,18 @@ builder.Services.AddScoped<CategoryService>(static provider =>
     }
     return new CategoryService(connectionString);
 });
+
+builder.Services.AddScoped<VoterService>(static provider =>
+{
+    var configuration = provider.GetRequiredService<IConfiguration>();
+    var connectionString = configuration.GetConnectionString("DefaultConnection");
+    if (string.IsNullOrEmpty(connectionString))
+    {
+        throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
+    }
+    return new VoterService(connectionString);
+});
+
 builder.Services.AddScoped<NomineeService>(static provider =>
 {
     var configuration = provider.GetRequiredService<IConfiguration>();
@@ -94,6 +119,8 @@ builder.Services.AddScoped<IUserService>(static provider =>
     return new UserService(connectionString);
 });
 
+
+
 var app = builder.Build();
 
 app.MapControllerRoute(
@@ -108,18 +135,6 @@ app.UseMiddleware<ErrorHandle>();
 
 app.UseDeveloperExceptionPage();
 
-//COMMAND TO MIGRATE DATABASE
-if (args.Length > 0 && args[0] == "migrate")
-{
-    var scriptPath = args.Length > 1 ? args[1] : "./Data/01-Migration.sql";
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-    if (string.IsNullOrEmpty(connectionString))
-    {
-        throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
-    }
-    await DBConnection.RunMigrationsAsync(connectionString, scriptPath);
-    return;
-}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
