@@ -7,6 +7,7 @@ namespace Oscars.Backend.Model
         public required int Id { get; set; }
         public required int PollId { get; set; }
         public required string Name { get; set; }
+        public string? Email { get; set; }
     }
 
     public class UniqueCode

@@ -7,7 +7,7 @@ namespace Oscars.Backend.Model
     public class Question
     {
         public required int Id { get; set; }
-        public required int Poll_id { get; set; }
+        public required int pollId { get; set; }
         public required string Title { get; set; }
         public required string Description { get; set; }
     }

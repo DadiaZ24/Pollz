@@ -49,8 +49,8 @@ namespace Oscars.Backend.Router
         [HttpPost]
         public ActionResult Create([FromBody] VoterDto voterDto)
         {
-            _voterService.Create(voterDto);
-            return CreatedAtAction(nameof(GetById), new { id = voterDto.Id }, voterDto);
+            var voter = _voterService.Create(voterDto);
+            return CreatedAtAction(nameof(GetById), new { id = voter.Id }, voter);
         }
 
         //UPDATE A CATEGORY

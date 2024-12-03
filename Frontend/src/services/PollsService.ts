@@ -2,10 +2,11 @@ const API_URL = "http://localhost:5166/api";
 
 export interface Poll {
   id: number;
+  userId: number;
   title: string;
-  description: string;
-  createdAt: string;
-  totalVotes: number;
+  description?: string;
+  created_at: Date;
+  updated_at: Date;
 }
 
 export const getAllPolls = async () => {

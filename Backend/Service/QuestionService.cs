@@ -19,7 +19,7 @@ namespace Oscars.Backend.Service
             var question = new Question
             {
                 Id = questionDto.Id,
-                Poll_id = questionDto.Poll_id,
+                pollId = questionDto.pollId,
                 Title = questionDto.Title,
                 Description = questionDto.Description,
             };
@@ -30,8 +30,15 @@ namespace Oscars.Backend.Service
             using var cmd = new NpgsqlCommand("INSERT INTO operations.questions (title, description, poll_id) VALUES (@1, @2, @3) RETURNING *", connection);
             cmd.Parameters.AddWithValue("@1", question.Title != null ? question.Title : DBNull.Value);
             cmd.Parameters.AddWithValue("@2", question.Description != null ? question.Description : DBNull.Value);
-            cmd.Parameters.AddWithValue("@3", question.Poll_id);
-            cmd.ExecuteNonQuery();
+            cmd.Parameters.AddWithValue("@3", question.pollId);
+            var reader = cmd.ExecuteReader();
+
+            Console.WriteLine("///////////////////////////\nQUERY ==== " + cmd.CommandText + "\n///////////////////////////");
+
+            while (reader.Read())
+            {
+                question.Id = reader.GetInt32(0);
+            }
 
 
             return question;
@@ -52,7 +59,32 @@ namespace Oscars.Backend.Service
                 var questionDto = new QuestionDto
                 {
                     Id = reader.GetInt32(0),
-                    Poll_id = reader.GetInt32(1),
+                    pollId = reader.GetInt32(1),
+                    Title = reader.GetString(2),
+                    Description = reader.GetString(3),
+                };
+                questionsDto.Add(questionDto);
+            }
+
+            return questionsDto;
+        }
+
+        public List<QuestionDto> GetByPollId(int pollId)
+        {
+            List<QuestionDto> questionsDto = [];
+
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using var cmd = new NpgsqlCommand("SELECT * FROM operations.questions WHERE poll_id = @1", connection);
+            cmd.Parameters.AddWithValue("@1", pollId);
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                var questionDto = new QuestionDto
+                {
+                    Id = reader.GetInt32(0),
+                    pollId = reader.GetInt32(1),
                     Title = reader.GetString(2),
                     Description = reader.GetString(3),
                 };
@@ -78,7 +110,7 @@ namespace Oscars.Backend.Service
                 questionDto = new QuestionDto
                 {
                     Id = questionId,
-                    Poll_id = reader.GetInt32(1),
+                    pollId = reader.GetInt32(1),
                     Title = reader.GetString(2),
                     Description = reader.GetString(3),
                 };
@@ -95,7 +127,7 @@ namespace Oscars.Backend.Service
                 Id = questionDto.Id,
                 Title = questionDto.Title,
                 Description = questionDto.Description,
-                Poll_id = questionDto.Poll_id,
+                pollId = questionDto.pollId,
             };
 
             using var connection = new NpgsqlConnection(_connectionString);
@@ -103,7 +135,7 @@ namespace Oscars.Backend.Service
 
             using var cmd = new NpgsqlCommand("UPDATE operations.questions SET title = @3, description = @4 WHERE id = @1 AND Poll_id = @2 RETURNING *", connection);
             cmd.Parameters.AddWithValue("@1", question.Id);
-            cmd.Parameters.AddWithValue("@2", question.Poll_id);
+            cmd.Parameters.AddWithValue("@2", question.pollId);
             cmd.Parameters.AddWithValue("@3", question.Title);
             cmd.Parameters.AddWithValue("@4", question.Description);
             cmd.ExecuteNonQuery();

@@ -180,3 +180,4 @@ C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.pdb
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.genruntimeconfig.cache
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\ref\Oscars.dll
+C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\configs\lang\pt\common.json

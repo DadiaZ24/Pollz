@@ -14,32 +14,42 @@ namespace Oscars.Backend.Router
         [HttpGet]
         public ActionResult GetAll()
         {
-            var category = _questionService.GetAll();
-            if (category == null)
+            var question = _questionService.GetAll();
+            if (question == null)
             {
-                return NotFound("No categories found");
+                return NotFound("No question found");
             }
-            return Ok(category);
+            return Ok(question);
         }
 
+        [HttpGet("poll/{pollId}")]
+        public ActionResult GetByPollId(int pollId)
+        {
+            var question = _questionService.GetByPollId(pollId);
+            if (question == null)
+            {
+                return NotFound("No question found");
+            }
+            return Ok(question);
+        }
         //GET A CATEGORY
         [HttpGet("{id}")]
         public ActionResult GetById(int id)
         {
-            var category = _questionService.GetById(id);
-            if (category == null)
+            var question = _questionService.GetById(id);
+            if (question == null)
             {
-                return NotFound("Category not found");
+                return NotFound("Question not found");
             }
-            return Ok(category);
+            return Ok(question);
         }
 
         //CREATE A CATEGORY
         [HttpPost]
         public ActionResult Create([FromBody] QuestionDto questionDto)
         {
-            _questionService.Create(questionDto);
-            return CreatedAtAction(nameof(GetById), new { id = questionDto.Id }, questionDto);
+            var question = _questionService.Create(questionDto);
+            return CreatedAtAction(nameof(GetById), new { id = question.Id }, question);
         }
 
         //UPDATE A CATEGORY

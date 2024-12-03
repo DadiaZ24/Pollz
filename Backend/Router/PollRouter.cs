@@ -38,8 +38,8 @@ namespace Oscars.Backend.Router
 		[HttpPost]
 		public ActionResult Create([FromBody] PollDto pollDto)
 		{
-			_pollService.Create(pollDto);
-			return CreatedAtAction(nameof(GetById), new { id = pollDto.Id }, pollDto);
+			var poll = _pollService.Create(pollDto);
+			return CreatedAtAction(nameof(GetById), new { id = poll.Id }, poll);
 		}
 
 		//UPDATE A Answer

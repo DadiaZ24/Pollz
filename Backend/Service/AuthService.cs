@@ -67,7 +67,7 @@ namespace Oscars.Backend.Service
 			var storedPasswordHash = reader.GetString(reader.GetOrdinal("password"));
 			if (VerifyPassword(loginDto.Password, storedPasswordHash))
 			{
-				var token = GenerateJwtToken(reader.GetString(reader.GetOrdinal("username")));
+				var token = GenerateJwtToken(reader.GetString(reader.GetOrdinal("username")), reader.GetInt32(reader.GetOrdinal("id")));
 				return new AuthResult { Success = true, Token = token };
 			}
 			else
@@ -90,7 +90,7 @@ namespace Oscars.Backend.Service
 		}
 
 
-		private string GenerateJwtToken(string username)
+		private string GenerateJwtToken(string username, int userId)
 		{
 			var expiryMinutes = _jwtSettings.ExpiryMinutes;
 			Console.WriteLine("///////////////////\n" + expiryMinutes + "\n///////////////////");
@@ -104,7 +104,7 @@ namespace Oscars.Backend.Service
 			var key = Encoding.UTF8.GetBytes(_jwtSettings.SecretKey);
 			var tokenDescriptor = new SecurityTokenDescriptor
 			{
-				Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, username) }),
+				Subject = new ClaimsIdentity([new Claim(ClaimTypes.Name, username), new Claim("Id", userId.ToString())]),
 				Expires = DateTime.UtcNow.AddMinutes(expiryMinutes),
 				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
 			};

@@ -14,7 +14,7 @@ namespace Oscars.Backend.Service
 		{
 			var poll = new Poll
 			{
-				Id = pollDto.Id,
+				Id = 0,
 				UserId = pollDto.UserId,
 				Title = pollDto.Title,
 				Description = pollDto.Description,
@@ -29,8 +29,11 @@ namespace Oscars.Backend.Service
 			cmd.Parameters.AddWithValue("@1", poll.UserId);
 			cmd.Parameters.AddWithValue("@2", poll.Title);
 			cmd.Parameters.AddWithValue("@3", poll.Description ?? (object)DBNull.Value);
-			cmd.ExecuteNonQuery();
+			using var reader = cmd.ExecuteReader();
+			while (reader.Read())
+				poll.Id = reader.GetInt32(0);
 
+			Console.WriteLine("Poll created with id: " + poll.Id);
 
 			return poll;
 		}

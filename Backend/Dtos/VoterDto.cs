@@ -5,6 +5,7 @@ namespace Oscars.Backend.Dtos
         public required int Id { get; set; }
         public required int PollId { get; set; }
         public required string Name { get; set; }
+        public string? Email { get; set; }
     }
 
     public class UniqueCodeDto
@@ -19,6 +20,7 @@ namespace Oscars.Backend.Dtos
         public required int Id { get; set; }
         public required int PollId { get; set; }
         public required string Name { get; set; }
+        public string? Email { get; set; }
         public required string Code { get; set; }
     }
 }

@@ -21,7 +21,8 @@ namespace Oscars.Backend.Service
             {
                 Id = voterDto.Id,
                 PollId = voterDto.PollId,
-                Name = voterDto.Name
+                Name = voterDto.Name,
+                Email = voterDto.Email,
             };
 
             using var connection = new NpgsqlConnection(_connectionString);
@@ -73,6 +74,7 @@ namespace Oscars.Backend.Service
                     PollId = reader.GetInt32(1),
                     Name = reader.GetString(2),
                     Code = reader.GetString(3),
+                    Email = reader.IsDBNull(4) ? null : reader.GetString(4),
                 };
                 votersDto.Add(voterDto);
             }
@@ -98,6 +100,7 @@ namespace Oscars.Backend.Service
                     PollId = pollId,
                     Name = reader.GetString(1),
                     Code = reader.GetString(2),
+                    Email = reader.IsDBNull(3) ? null : reader.GetString(3),
                 };
                 votersDto.Add(voterDto);
             }
@@ -124,6 +127,7 @@ namespace Oscars.Backend.Service
                     PollId = reader.GetInt32(0),
                     Name = reader.GetString(1),
                     Code = reader.GetString(2),
+                    Email = reader.IsDBNull(3) ? null : reader.GetString(3),
                 };
             }
 
@@ -138,6 +142,7 @@ namespace Oscars.Backend.Service
                 Id = voterDto.Id,
                 PollId = voterDto.PollId,
                 Name = voterDto.Name,
+                Email = voterDto.Email,
             };
 
             using var connection = new NpgsqlConnection(_connectionString);

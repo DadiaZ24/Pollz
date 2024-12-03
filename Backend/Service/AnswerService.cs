@@ -29,7 +29,12 @@ namespace Oscars.Backend.Service
             using var cmd = new NpgsqlCommand("INSERT INTO operations.answers (question_id, title) VALUES (@1, @2) RETURNING *", connection);
             cmd.Parameters.AddWithValue("@1", answer.QuestionId);
             cmd.Parameters.AddWithValue("@2", answer.Title);
-            cmd.ExecuteNonQuery();
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                answer.Id = reader.GetInt32(0);
+            }
 
 
             return answer;
@@ -44,6 +49,30 @@ namespace Oscars.Backend.Service
             connection.Open();
 
             using var cmd = new NpgsqlCommand("SELECT * FROM operations.answers", connection);
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                var answerDto = new AnswerDto
+                {
+                    Id = reader.GetInt32(0),
+                    QuestionId = reader.GetInt32(1),
+                    Title = reader.GetString(2),
+                };
+                answersDto.Add(answerDto);
+            }
+
+            return answersDto;
+        }
+
+        public List<AnswerDto> GetByQuestionId(int questionId)
+        {
+            List<AnswerDto> answersDto = [];
+
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using var cmd = new NpgsqlCommand("SELECT * FROM operations.answers WHERE question_id = @1", connection);
+            cmd.Parameters.AddWithValue("@1", questionId);
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {

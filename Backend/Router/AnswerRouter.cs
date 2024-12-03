@@ -5,7 +5,7 @@ using Oscars.Backend.Service;
 namespace Oscars.Backend.Router
 {
     [ApiController]
-    [Route("api/answers")]
+    [Route("api/answer")]
     public class AnswerRouter(AnswerService answerService) : ControllerBase
     {
         private readonly AnswerService _answerService = answerService;
@@ -15,6 +15,17 @@ namespace Oscars.Backend.Router
         public ActionResult GetAll()
         {
             var answer = _answerService.GetAll();
+            if (answer == null)
+            {
+                return NotFound("No answers found");
+            }
+            return Ok(answer);
+        }
+
+        [HttpGet("question/{questionId}")]
+        public ActionResult GetByQuestionId(int questionId)
+        {
+            var answer = _answerService.GetByQuestionId(questionId);
             if (answer == null)
             {
                 return NotFound("No answers found");
@@ -38,8 +49,8 @@ namespace Oscars.Backend.Router
         [HttpPost]
         public ActionResult Create([FromBody] AnswerDto answerDto)
         {
-            _answerService.Create(answerDto);
-            return CreatedAtAction(nameof(GetById), new { id = answerDto.Id }, answerDto);
+            var answer = _answerService.Create(answerDto);
+            return CreatedAtAction(nameof(GetById), new { id = answer.Id }, answer);
         }
 
         //UPDATE A NOMINEE
