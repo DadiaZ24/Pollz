@@ -6,6 +6,7 @@ import PollsPage from "./pages/PollsPage";
 import { isAuthenticated } from "./services/AuthService";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AddPollPage from "./pages/AddPollPage";
+import PollsInfoPage from "./pages/PollInfoPage";
 
 const App: React.FC = () => {
   const [isAuth, setIsAuth] = React.useState<boolean>(false);
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <Route path="/" element={isAuth ? <PollsPage /> : <LoginPage />} />
           <Route path="/polls" element={<PollsPage />} />
           <Route path="/polls/add-pole" element={<AddPollPage />} />
+          <Route path="polls/:id" element={<PollsInfoPage />} />
         </Route>
       </Routes>
     </Router>

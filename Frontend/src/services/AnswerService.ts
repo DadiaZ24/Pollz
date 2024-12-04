@@ -14,7 +14,7 @@ export const getAllAnswers = async () => {
   return response.json();
 };
 
-export const getAnswerByQuestionId = async (id: number): Promise<Answer> => {
+export const getAnswersByQuestionId = async (id: number): Promise<Answer[]> => {
   const response = await fetch(`${API_URL}/answer/question/${id}`);
   if (!response.ok) {
 	throw new Error("Failed to fetch answer");

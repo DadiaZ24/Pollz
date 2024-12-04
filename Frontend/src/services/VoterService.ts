@@ -3,7 +3,8 @@ const API_URL = "http://localhost:5166/api";
 export interface Voter {
   	id: number;
 	pollId: number;
-	name: string;
+  name: string;
+  code: string;
   	email: string;
 }
 
@@ -15,7 +16,7 @@ export const getAllVoters = async () => {
   return response.json();
 };
 
-export const getVotersByPollId = async (id: number): Promise<Voter> => {
+export const getVotersByPollId = async (id: number): Promise<Voter[]> => {
   const response = await fetch(`${API_URL}/voters/poll/${id}`);
   if (!response.ok) {
 	throw new Error("Failed to fetch voters");

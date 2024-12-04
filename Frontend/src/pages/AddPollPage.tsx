@@ -141,8 +141,8 @@ const AddPollPage: React.FC = () => {
             <button
               onClick={() => {
                 addVoter({
-                  id: 0, // Use timestamp for unique ID
-                  poll_id: pollBuffer.poll.id,
+                  id: Math.floor(Math.random() * 10000) + 1, // Use timestamp for unique ID
+                  pollId: pollBuffer.poll.id,
                   name: "",
                   email: "",
                 });

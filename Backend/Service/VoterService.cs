@@ -100,7 +100,6 @@ namespace Oscars.Backend.Service
                     PollId = pollId,
                     Name = reader.GetString(1),
                     Code = reader.GetString(2),
-                    Email = reader.IsDBNull(3) ? null : reader.GetString(3),
                 };
                 votersDto.Add(voterDto);
             }

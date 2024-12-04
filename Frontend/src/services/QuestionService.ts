@@ -2,7 +2,7 @@ const API_URL = "http://localhost:5166/api";
 
 export interface Question {
   id: number;
-	poll_id: number;
+	pollId: number;
 	title: string;
   description?: string;
 }
@@ -15,7 +15,7 @@ export const getAllQuestions = async () => {
   return response.json();
 };
 
-export const getQuestionByPollId = async (id: number): Promise<Question> => {
+export const getQuestionsByPollId = async (id: number): Promise<Question[]> => {
   const response = await fetch(`${API_URL}/question/poll/${id}`);
   if (!response.ok) {
 	throw new Error("Failed to fetch question");
