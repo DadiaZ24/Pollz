@@ -11,6 +11,7 @@ using Oscars.Data;
 using Oscars.Backend.Configurations;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,7 +40,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
     policy =>
     {
-        policy.WithOrigins("http://localhost:5173")
+        policy.WithOrigins("http://100.42.185.156")
         .AllowAnyHeader()
         .AllowAnyMethod();
     });
@@ -173,9 +174,32 @@ app.MapControllerRoute(
 
 //Use Cors
 
+//CORS configuration
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
 app.UseCors("AllowFrontend");
 
+app.Use(async (context, next) =>
+{
+    if (context.Request.Method == "OPTIONS")
+    {
+        context.Response.Headers.Append("Access-Control-Allow-Origin", "http://100.42.185.156");
+        context.Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        context.Response.Headers.Append("Access-Control-Allow-Headers", "Content-Type");
+        context.Response.StatusCode = 200;
+        return;
+    }
+
+    await next();
+});
+
 app.UseMiddleware<ErrorHandle>();
+
+app.MapGet("/api/auth/test", () => "Backend is reachable.");
 
 app.UseDeveloperExceptionPage();
 

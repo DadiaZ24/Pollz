@@ -7,7 +7,7 @@ import "../i18n";
 import { getUserIdFromToken } from "../hooks/User";
 
 const Header: React.FC = () => {
-  const { t } = useTranslation("common");
+  useTranslation("common");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [user, setUser] = useState<{ id: number; name: string } | null>(null);
   interface Poll {
@@ -15,7 +15,7 @@ const Header: React.FC = () => {
     title: string;
   }
 
-  const [polls, setPolls] = useState<Poll[]>([]);
+  const [, setPolls] = useState<Poll[]>([]);
 
   useEffect(() => {
     const fetchPolls = async () => {

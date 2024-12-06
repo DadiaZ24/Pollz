@@ -12,13 +12,31 @@ namespace Oscars.Backend.Service
             using var connection = new NpgsqlConnection(_connectionString);
             await connection.OpenAsync();
 
-            using var cmd = new NpgsqlCommand("INSERT INTO operations.votes (answer_id, question_id, voter_id) VALUES (@1, @2, @3)", connection);
-            cmd.Parameters.AddWithValue("@1", voteRequestDto.AnswerId);
-            cmd.Parameters.AddWithValue("@2", voteRequestDto.QuestionId);
-            cmd.Parameters.AddWithValue("@3", voteRequestDto.VoterId);
+            using var transaction = await connection.BeginTransactionAsync();
 
-            var result = await cmd.ExecuteNonQueryAsync();
-            return result > 0;
+            try
+            {
+                using var cmd = new NpgsqlCommand("INSERT INTO operations.votes (answer_id, question_id, voter_id) VALUES (@1, @2, @3)", connection);
+                cmd.Parameters.AddWithValue("@1", voteRequestDto.AnswerId);
+                cmd.Parameters.AddWithValue("@2", voteRequestDto.QuestionId);
+                cmd.Parameters.AddWithValue("@3", voteRequestDto.VoterId);
+
+                var result = await cmd.ExecuteNonQueryAsync();
+
+                using var cmd2 = new NpgsqlCommand("UPDATE operations.uniquecodes SET used = true WHERE voter_id = @1", connection);
+                cmd2.Parameters.AddWithValue("@1", voteRequestDto.VoterId);
+                await cmd2.ExecuteNonQueryAsync();
+
+                await transaction.CommitAsync();
+                Console.WriteLine("Made INSERT AND UPDATE");
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                Console.WriteLine($"Transaction failed: {ex.Message}");
+                return false;
+            }
         }
 
         public async Task<bool> Update(VoteRequestDto voteRequestDto)
@@ -56,7 +74,7 @@ namespace Oscars.Backend.Service
             using var connection = new NpgsqlConnection(_connectionString);
             await connection.OpenAsync();
 
-            using var cmd = new NpgsqlCommand("SELECT a.id, a.title, COUNT(v.id) FROM operations.answers a LEFT JOIN operations.votes v ON a.id = v.answer_id WHERE v.question_id = @1 GROUP BY a.id ORDER BY COUNT(v.id) DESC", connection);
+            using var cmd = new NpgsqlCommand("SELECT a.id, a.title, COUNT(v.id) AS vote_count FROM operations.answers a LEFT JOIN operations.votes v ON a.id = v.answer_id WHERE v.question_id = @1 GROUP BY a.id ORDER BY vote_count DESC;", connection);
             cmd.Parameters.AddWithValue("@1", questionId);
 
             using var reader = await cmd.ExecuteReaderAsync();
@@ -70,8 +88,10 @@ namespace Oscars.Backend.Service
                     VoteCount = reader.GetInt32(2)
                 });
             }
+            Console.WriteLine($"SELECT a.id, a.title, COUNT(v.id) AS vote_count FROM operations.answers a JOIN operations.votes v ON a.id = v.answer_id WHERE v.question_id = {questionId} GROUP BY a.id ORDER BY vote_count DESC");
 
             return results;
         }
+
     }
 }

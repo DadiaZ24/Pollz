@@ -15,10 +15,11 @@ namespace Oscars.Backend.Model
         public required int Id { get; set; }
         public required int VoterId { get; set; }
         public required string Code { get; set; }
+        public required bool Used { get; set; }
 
         public string Generate()
         {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-*/.:;[]{}()";
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             StringBuilder result = new(6);
 
             Random random = new();

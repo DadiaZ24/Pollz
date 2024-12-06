@@ -26,7 +26,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   const handleAnswerAdd = () => {
     const newAnswer: Answer = {
       id: Math.floor(Math.random() * 100000) + 1,
-      question_id: question.id,
+      questionId: question.id,
       title: "",
     };
     addAnswer(question.id, newAnswer);

@@ -45,6 +45,13 @@ namespace Oscars.Backend.Router
             return Ok(voter);
         }
 
+        [HttpGet("code/{code}")]
+        public ActionResult UpdateCodeStatus(VoterWithCodeDto voterWithCodeDto)
+        {
+            _voterService.UpdateCodeStatus(voterWithCodeDto);
+            return NoContent();
+        }
+
         //CREATE A CATEGORY
         [HttpPost]
         public ActionResult Create([FromBody] VoterDto voterDto)
@@ -63,6 +70,17 @@ namespace Oscars.Backend.Router
             }
             _voterService.Update(voterDto);
             return NoContent();
+        }
+
+        [HttpGet("voter/{code}")]
+        public ActionResult<VoterWithCodeDto> GetByCode(string code)
+        {
+            var voter = _voterService.getVoterByCode(code);
+            if (voter == null)
+            {
+                return NotFound("Voter not found");
+            }
+            return Ok(voter);
         }
 
         //DELETE A CATEGORY

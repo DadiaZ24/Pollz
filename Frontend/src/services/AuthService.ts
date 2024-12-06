@@ -16,8 +16,7 @@ interface ApiResponse<T> {
   error?: string;
 }
 
-const BASE_URL = "http://localhost:5166/api";
-
+const BASE_URL = "http://100.42.185.156/api";
 export const login = async (credentials: LoginCredentials): Promise<string> => {
   try {
     const response = await fetch(`${BASE_URL}/auth/login`, {

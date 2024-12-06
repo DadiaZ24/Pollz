@@ -18,7 +18,7 @@ const AddQuestionCard: React.FC<AddQuestionCardProps> = ({
     if (newQuestionTitle.trim() && newQuestionDescription.trim()) {
       const newQuestion: Question = {
         id: Math.floor(Math.random() * 100000) + 1,
-        poll_id: pollBuffer.poll.id,
+        pollId: pollBuffer.poll.id,
         title: newQuestionTitle,
         description: newQuestionDescription,
       };

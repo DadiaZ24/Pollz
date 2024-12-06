@@ -13,6 +13,7 @@ namespace Oscars.Backend.Dtos
         public required int Id { get; set; }
         public required int VoterId { get; set; }
         public required string Code { get; set; }
+        public required bool Used { get; set; }
     }
 
     public class VoterWithCodeDto
@@ -22,5 +23,6 @@ namespace Oscars.Backend.Dtos
         public required string Name { get; set; }
         public string? Email { get; set; }
         public required string Code { get; set; }
+        public required bool Used { get; set; }
     }
 }

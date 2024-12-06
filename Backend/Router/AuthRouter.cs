@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Oscars.Backend.Dtos;
 using Oscars.Backend.Service;
@@ -6,6 +7,7 @@ namespace Oscars.Backend.Router
 {
 
 	//AUTHENTICATION
+	[EnableCors("AllowFrontend")]
 	[ApiController]
 	[Route("api/auth")]
 	public class LoginRouter : ControllerBase
@@ -15,7 +17,11 @@ namespace Oscars.Backend.Router
 		{
 			_authService = authService;
 		}
-
+		[HttpGet("test")]
+		public string Test()
+		{
+			return "Backend is reachable.";
+		}
 		[HttpPost("register")]
 		public async Task<IActionResult> Register([FromBody] UserDto userDto)
 		{

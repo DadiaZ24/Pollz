@@ -14,7 +14,8 @@ namespace Oscars.Backend.Service
             {
                 Id = 0,
                 VoterId = 0,
-                Code = ""
+                Code = "",
+                Used = false
             };
 
             var voter = new Voter
@@ -64,7 +65,7 @@ namespace Oscars.Backend.Service
             using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
 
-            using var cmd = new NpgsqlCommand("SELECT v.id, v.poll_id, v.name, uc.code FROM operations.voters v JOIN operations.uniquecodes uc ON v.id = uc.voter_id", connection);
+            using var cmd = new NpgsqlCommand("SELECT v.id, v.poll_id, v.name, uc.code, uc.used FROM operations.voters v JOIN operations.uniquecodes uc ON v.id = uc.voter_id", connection);
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -74,7 +75,7 @@ namespace Oscars.Backend.Service
                     PollId = reader.GetInt32(1),
                     Name = reader.GetString(2),
                     Code = reader.GetString(3),
-                    Email = reader.IsDBNull(4) ? null : reader.GetString(4),
+                    Used = reader.GetBoolean(4),
                 };
                 votersDto.Add(voterDto);
             }
@@ -89,7 +90,7 @@ namespace Oscars.Backend.Service
             using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
 
-            using var cmd = new NpgsqlCommand("SELECT v.id, v.name, uc.code FROM operations.voters v JOIN operations.uniquecodes uc ON v.id = uc.voter_id WHERE v.poll_id = @1", connection);
+            using var cmd = new NpgsqlCommand("SELECT v.id, v.name, uc.code, uc.used FROM operations.voters v JOIN operations.uniquecodes uc ON v.id = uc.voter_id WHERE v.poll_id = @1", connection);
             cmd.Parameters.AddWithValue("@1", pollId);
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
@@ -100,6 +101,7 @@ namespace Oscars.Backend.Service
                     PollId = pollId,
                     Name = reader.GetString(1),
                     Code = reader.GetString(2),
+                    Used = reader.GetBoolean(3),
                 };
                 votersDto.Add(voterDto);
             }
@@ -114,7 +116,7 @@ namespace Oscars.Backend.Service
             using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
 
-            using var cmd = new NpgsqlCommand("SELECT v.poll_id, v.name, uc.code FROM operations.voters v JOIN operations.uniquecodes uc ON v.id = uc.voter_id WHERE v.id = @1", connection);
+            using var cmd = new NpgsqlCommand("SELECT v.poll_id, v.name, uc.code, uc.used FROM operations.voters v JOIN operations.uniquecodes uc ON v.id = uc.voter_id WHERE v.id = @1", connection);
             cmd.Parameters.AddWithValue("@1", voterId);
             using var reader = cmd.ExecuteReader();
 
@@ -126,7 +128,32 @@ namespace Oscars.Backend.Service
                     PollId = reader.GetInt32(0),
                     Name = reader.GetString(1),
                     Code = reader.GetString(2),
-                    Email = reader.IsDBNull(3) ? null : reader.GetString(3),
+                    Used = reader.GetBoolean(3),
+                };
+            }
+
+            return voterDto;
+        }
+
+        public VoterWithCodeDto getVoterByCode(string code)
+        {
+            VoterWithCodeDto? voterDto = null;
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using var cmd = new NpgsqlCommand("SELECT v.id, v.poll_id, v.name, uc.code, uc.used FROM operations.voters v JOIN operations.uniquecodes uc ON v.id = uc.voter_id WHERE uc.code = @1", connection);
+            cmd.Parameters.AddWithValue("@1", code);
+            using var reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                voterDto = new VoterWithCodeDto
+                {
+                    Id = reader.GetInt32(0),
+                    PollId = reader.GetInt32(1),
+                    Name = reader.GetString(2),
+                    Code = reader.GetString(3),
+                    Used = reader.GetBoolean(4),
                 };
             }
 
@@ -152,6 +179,16 @@ namespace Oscars.Backend.Service
             cmd.ExecuteNonQuery();
 
             return voter;
+        }
+
+        public void UpdateCodeStatus(VoterWithCodeDto voterWithCodeDto)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using var cmd = new NpgsqlCommand("UPDATE operations.uniquecodes SET used = false WHERE code = @1 RETURNING *", connection);
+            cmd.Parameters.AddWithValue("@2", voterWithCodeDto.Code);
+            cmd.ExecuteNonQuery();
         }
 
         //DELETE A CATEGORY

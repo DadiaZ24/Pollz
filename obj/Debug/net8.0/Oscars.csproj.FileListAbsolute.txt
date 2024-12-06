@@ -1,13 +1,6 @@
-C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.csproj.AssemblyReference.cache
-C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.AssemblyInfoInputs.cache
-C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.AssemblyInfo.cs
-C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.csproj.CoreCompileInputs.cache
-C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.sourcelink.json
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\appsettings.json
+C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\configs\lang\pt\common.json
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\Frontend\package-lock.json
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\Frontend\package.json
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\Frontend\tsconfig.app.json
@@ -164,6 +157,14 @@ C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.csproj.AssemblyReference.cache
+C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.AssemblyInfoInputs.cache
+C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.AssemblyInfo.cs
+C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.csproj.CoreCompileInputs.cache
+C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.sourcelink.json
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\scopedcss\bundle\Oscars.styles.css
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\staticwebassets.development.json
@@ -180,4 +181,3 @@ C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.pdb
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\Oscars.genruntimeconfig.cache
 C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\obj\Debug\net8.0\ref\Oscars.dll
-C:\Users\diogo\Desktop\Personal Work\Oscars_Fiscomelres\oscars\bin\Debug\net8.0\configs\lang\pt\common.json

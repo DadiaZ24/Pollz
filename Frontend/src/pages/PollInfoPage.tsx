@@ -70,7 +70,7 @@ const PollInfoPage: React.FC = () => {
       <main className="container mx-auto p-8 flex-grow">
         <nav className="flex justify-center space-x-4 mb-8">
           <Link
-            to={`/polls/${id}/info`}
+            to={`/polls/${id}`}
             className="text-lg font-medium text-blue-500 hover:underline"
           >
             Info
@@ -115,15 +115,25 @@ const PollInfoPage: React.FC = () => {
               Voters
             </h3>
             {voters.length ? (
-              <ul className="space-y-4">
-                {voters.map((voter, index) => (
-                  <div className="bg-gray-100 p-6 grid grid-cols-3" key={index}>
-                    <span>{voter.name}</span>
-                    <span>{voter.code}</span>
-                    <span>CODIGO CHECK</span>
-                  </div>
-                ))}
-              </ul>
+              <div>
+                <div className="grid grid-cols-3 bg-gray-200 p-6 font-semibold">
+                  <span>Name</span>
+                  <span>Code</span>
+                  <span>Used</span>
+                </div>
+                <ul className="space-y-4">
+                  {voters.map((voter, index) => (
+                    <div
+                      className="bg-gray-100 p-6 grid grid-cols-3"
+                      key={index}
+                    >
+                      <span>{voter.name}</span>
+                      <span>{voter.code}</span>
+                      <span>{voter.used ? "✔️" : "❌"}</span>
+                    </div>
+                  ))}
+                </ul>
+              </div>
             ) : (
               <p className="text-gray-600">No voters yet.</p>
             )}

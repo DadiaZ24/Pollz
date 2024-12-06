@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Oscars")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3c6ebb02efd52b6c601c7e928673e70b5d42b56")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb84c431e6ae75013c53ba7651ecc2d85bdc43e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Oscars")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Oscars")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

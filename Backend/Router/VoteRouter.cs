@@ -6,7 +6,7 @@ namespace Oscars.Backend.Router
 {
     [ApiController]
     [Route("api/vote")]
-    public class VoteRouter (VoteService voteService) : ControllerBase
+    public class VoteRouter(VoteService voteService) : ControllerBase
     {
         private readonly VoteService _voteService = voteService;
 
@@ -17,10 +17,10 @@ namespace Oscars.Backend.Router
 
             if (hasVoted)
             {
-                var updated = await _voteService.Update(voteRequestDto);
+                var updated = await _voteService.Create(voteRequestDto);
                 if (updated)
                 {
-                    return Ok("Vote updated successfully.");
+                    return Ok("Vote created successfully.");
                 }
                 else
                 {
@@ -45,9 +45,10 @@ namespace Oscars.Backend.Router
         public async Task<IActionResult> GetResults(int questionId)
         {
             var results = await _voteService.GetResultsAsync(questionId);
+
             if (results.Count == 0)
             {
-                return NotFound("No votes found.");
+                return Ok(results);  // Return empty array instead of NotFound
             }
             return Ok(results);
         }
