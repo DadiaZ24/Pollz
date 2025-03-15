@@ -16,10 +16,11 @@ interface ApiResponse<T> {
   error?: string;
 }
 
-const BASE_URL = "http://100.42.185.156/api";
+const API_URL = "http://localhost:5166/api";
+
 export const login = async (credentials: LoginCredentials): Promise<string> => {
   try {
-    const response = await fetch(`${BASE_URL}/auth/login`, {
+    const response = await fetch(`${API_URL}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials),
@@ -56,7 +57,7 @@ export const login = async (credentials: LoginCredentials): Promise<string> => {
 // Function to register a new user
 export const register = async (userDetails: RegisterDetails): Promise<ApiResponse<RegisterDetails>> => {
   try {
-    const response = await fetch(`${BASE_URL}/auth/register`, {
+    const response = await fetch(`${API_URL}/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userDetails),

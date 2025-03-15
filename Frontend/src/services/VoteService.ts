@@ -16,7 +16,8 @@ interface VoteRequestDto {
 	voterId: number;
   }
 
-  const API_URL = "http://100.42.185.156/api";
+const API_URL = "http://localhost:5166/api";
+  
 export const getResultsByQuestionId = async (questionId: number): Promise<Result[]> => {
 	console.log("Fetching results for question ID:", questionId); // Debug log
   

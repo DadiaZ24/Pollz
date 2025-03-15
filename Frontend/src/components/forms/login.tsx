@@ -29,11 +29,9 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
 
     if (form.uniquecode) {
-      // If the user enters a uniquecode, use it for authentication
       try {
-        const voter = await getVoterByCode(form.uniquecode); // Validate the uniquecode
+        const voter = await getVoterByCode(form.uniquecode);
         if (voter) {
-          // Redirect to the voting page with voterId and uniquecode in the URL
           navigate(`/voting/${voter.id}/${form.uniquecode}`);
         } else {
           setError("Invalid code. Please try again.");
@@ -46,11 +44,10 @@ const LoginForm: React.FC = () => {
         }
       }
     } else {
-      // If no uniquecode, proceed with traditional username/password login
       try {
-        const token = await login(form); // Log in using username and password
+        const token = await login(form);
         localStorage.setItem("authToken", token);
-        navigate("/polls"); // Redirect to the polls page after successful login
+        navigate("/polls");
       } catch (err: unknown) {
         if (err instanceof Error) {
           setError(err.message);
@@ -62,7 +59,7 @@ const LoginForm: React.FC = () => {
   };
 
   const handleRegisterRedirect = () => {
-    navigate("/register"); // Redirect to the register page
+    navigate("/register");
   };
 
   return (
@@ -70,7 +67,6 @@ const LoginForm: React.FC = () => {
       <h2 className="text-gray-100 text-2xl font-bold mb-4">Login</h2>
       {error && <p className="text-red-500 mb-4">{error}</p>}
       <form onSubmit={handleSubmit}>
-        {/* Username & Password Fields (only visible if uniquecode is empty) */}
         {!form.uniquecode && (
           <>
             <div className="mb-4">

@@ -21,30 +21,25 @@ const VotingPage: React.FC = () => {
   >({});
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
-  const [, setVoter] = useState<unknown>(null); // Assuming voter info
-  const [, setIsFormValid] = useState<boolean>(true); // To track form validity
+  const [, setVoter] = useState<unknown>(null);
+  const [, setIsFormValid] = useState<boolean>(true);
 
-  // Fetch questions and answers when component mounts or when voterId/uniqueCode changes
   useEffect(() => {
     const fetchVotingData = async () => {
       try {
-        // Reset form state to avoid conflicts
         setSelectedAnswers({});
 
-        // Fetch the voter based on the unique code
         if (!uniqueCode) {
           throw new Error("Unique code is undefined");
         }
         const fetchedVoter = await getVoterByCode(uniqueCode);
         setVoter(fetchedVoter);
 
-        // Fetch questions for the poll related to the voter
         const fetchedQuestions = await getQuestionsByPollId(
           fetchedVoter.pollId
         );
         setQuestions(fetchedQuestions);
 
-        // Fetch answers for each question
         const fetchedAnswersByQuestion: Record<number, Answer[]> = {};
         for (const question of fetchedQuestions) {
           const answers = await getAnswersByQuestionId(question.id);
@@ -60,49 +55,35 @@ const VotingPage: React.FC = () => {
     if (uniqueCode) {
       fetchVotingData();
     }
-  }, [voterId, uniqueCode]); // Trigger fetch when voterId or uniqueCode changes
+  }, [voterId, uniqueCode]);
 
   const handleSubmitVote = async () => {
     if (!voterId) {
       setError("Please provide a voter ID.");
       return;
     }
-
-    // Check if all questions have a selected answer
     const isValid = Object.keys(selectedAnswers).length === questions.length;
     setIsFormValid(isValid);
-
     if (!isValid) {
       setError("Please answer all the questions before submitting your vote.");
       return;
     }
-
     try {
-      // Collect answers for each question
       const votePromises = questions.map(async (question) => {
         const answerId = selectedAnswers[question.id];
         if (answerId) {
           const vote = {
             answerId,
             questionId: question.id,
-            voterId: parseInt(voterId), // Ensure voterId is a number
+            voterId: parseInt(voterId),
           };
-          // Call the createVote function with correct arguments
-          await createVote(voterId, selectedAnswers, vote); // Pass selectedAnswers here
+          await createVote(voterId, selectedAnswers, vote);
         }
       });
-
-      // Wait for all votes to be submitted
       await Promise.all(votePromises);
-
-      // Clear error and show success message
       setError(""); // Clear any existing error
       setSuccessMessage("Your vote has been successfully submitted!");
-
-      // Optional: Navigate to another page after successful voting
-      // navigate('/some-other-page');
     } catch (err) {
-      // Log the error to see where it's coming from
       console.error("Error during vote submission:", err);
       setError("An error occurred while submitting your vote.");
     }
@@ -113,19 +94,13 @@ const VotingPage: React.FC = () => {
       <HeaderGuest />
       <main className="container mx-auto p-8 flex-grow">
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">
-          <h2>🎄✨ Christmas's Oscars ✨🎄</h2>
+          <h2>🎄✨ Poll Page ✨🎄</h2>
         </h2>
-
-        {/* Display Success Message */}
         {successMessage && (
           <div className="text-green-500 mb-4">{successMessage}</div>
         )}
-
-        {/* Display Error Message */}
         {error && <div className="text-red-500 mb-4">{error}</div>}
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Render questions in a grid */}
           {questions.map((question) => (
             <div
               key={question.id}
@@ -163,8 +138,6 @@ const VotingPage: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Disable the submit button if the form is invalid (not all questions are answered) */}
         <div className="mt-8 text-center">
           <button
             onClick={handleSubmitVote}

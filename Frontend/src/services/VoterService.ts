@@ -1,4 +1,4 @@
-const API_URL = "http://100.42.185.156/api";
+const API_URL = "http://localhost:5166/api";
 export interface Voter {
   	id: number;
 	pollId: number;
