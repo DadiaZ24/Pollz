@@ -30,7 +30,6 @@ namespace Oscars.Backend.Service
 
 		public async Task<AuthResult> RegisterAsync(UserDto userDto)
 		{
-			//encrypt password
 			var hashedPassword = HashPassword(userDto.Password);
 
 			using var connection = new NpgsqlConnection(_connectionString);
@@ -93,8 +92,7 @@ namespace Oscars.Backend.Service
 		private string GenerateJwtToken(string username, int userId)
 		{
 			var expiryMinutes = _jwtSettings.ExpiryMinutes;
-			Console.WriteLine("///////////////////\n" + expiryMinutes + "\n///////////////////");
-			Console.WriteLine("///////////////////\n" + _jwtSettings.SecretKey + "\n///////////////////");
+
 			if (expiryMinutes <= 0)
 			{
 				throw new InvalidOperationException("Invalid expiry time");

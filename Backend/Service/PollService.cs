@@ -9,7 +9,6 @@ namespace Oscars.Backend.Service
 	{
 		private string _connectionString = connectionString;
 
-		//CREATE A Nominee
 		public Poll Create(PollDto pollDto)
 		{
 			var poll = new Poll
@@ -38,7 +37,6 @@ namespace Oscars.Backend.Service
 			return poll;
 		}
 
-		//READ ALL CATEGORIES
 		public List<PollDto> GetAll()
 		{
 			List<PollDto> pollsDto = [];
@@ -65,7 +63,6 @@ namespace Oscars.Backend.Service
 			return pollsDto;
 		}
 
-		//READ A Nominee
 		public PollDto? GetById(int pollId)
 		{
 			PollDto? pollDto = null;
@@ -100,7 +97,6 @@ namespace Oscars.Backend.Service
 			return pollDto;
 		}
 
-		//UPDATE A Nominee
 		public Poll Update(PollDto pollDto)
 		{
 			var poll = new Poll
@@ -126,7 +122,6 @@ namespace Oscars.Backend.Service
 			return poll;
 		}
 
-		//DELETE A Nominee
 		public void Delete(int id)
 		{
 			using var connection = new NpgsqlConnection(_connectionString);

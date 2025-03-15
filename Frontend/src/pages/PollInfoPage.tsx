@@ -20,12 +20,8 @@ const PollInfoPage: React.FC = () => {
       try {
         const pollData = await getPollById(Number(id));
         setPoll(pollData);
-
-        // Fetch questions for the poll
         const fetchedQuestions = await getQuestionsByPollId(Number(id));
         setQuestions(fetchedQuestions);
-
-        // Fetch answers for each question
         const fetchedVoters = await getVotersByPollId(Number(id));
         setVoters(fetchedVoters);
       } catch (err: unknown) {
@@ -108,8 +104,6 @@ const PollInfoPage: React.FC = () => {
               <p className="text-gray-600">No questions available.</p>
             )}
           </div>
-
-          {/* Voters Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
               Voters

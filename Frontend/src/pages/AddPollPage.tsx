@@ -39,7 +39,6 @@ const AddPollPage: React.FC = () => {
             ? "Create Voters"
             : "Finish"}
         </h2>
-        {/* Step 1: Create Poll */}
         {step === 1 && (
           <div className="bg-white shadow-lg rounded-lg p-6">
             <label className="block mb-2">Title</label>
@@ -61,12 +60,10 @@ const AddPollPage: React.FC = () => {
             />
           </div>
         )}
-        {/* Step 2: Insert Questions */}
         {step === 2 && (
           <div className="bg-white shadow-lg rounded-lg p-6">
             <h3 className="text-lg font-semibold mb-4"></h3>
             <div className="grid grid-cols-3 gap-4">
-              {/* Show "Add Question" button when there are no questions */}
               {pollBuffer.questions.length === 0 && !showAddQuestionCard && (
                 <button
                   onClick={() => setShowAddQuestionCard(true)}
@@ -76,7 +73,6 @@ const AddPollPage: React.FC = () => {
                 </button>
               )}
 
-              {/* Show AddQuestionCard directly if no questions */}
               {pollBuffer.questions.length === 0 && showAddQuestionCard && (
                 <AddQuestionCard
                   pollBuffer={pollBuffer}
@@ -84,14 +80,12 @@ const AddPollPage: React.FC = () => {
                 />
               )}
 
-              {/* Render questions if they exist */}
               {pollBuffer.questions.length > 0 &&
                 pollBuffer.questions.map(({ question, answers }) => (
                   <div key={question.id} className="mb-4">
-                    {/* Pass question details and related answers to QuestionCard */}
                     <QuestionCard
                       question={question}
-                      answers={answers} // Pass answers directly
+                      answers={answers}
                       updateQuestion={updateQuestion}
                       removeQuestion={removeQuestion}
                       updateAnswer={updateAnswer}
@@ -101,7 +95,6 @@ const AddPollPage: React.FC = () => {
                   </div>
                 ))}
 
-              {/* Show "Add Question" button when there are questions */}
               {pollBuffer.questions.length > 0 && !showAddQuestionCard && (
                 <button
                   onClick={() => setShowAddQuestionCard(true)}
@@ -111,7 +104,6 @@ const AddPollPage: React.FC = () => {
                 </button>
               )}
 
-              {/* Show AddQuestionCard when toggled and questions exist */}
               {showAddQuestionCard && pollBuffer.questions.length > 0 && (
                 <AddQuestionCard
                   pollBuffer={pollBuffer}
@@ -122,26 +114,22 @@ const AddPollPage: React.FC = () => {
           </div>
         )}
 
-        {/* Step 3: Create Voters */}
         {step === 3 && (
           <div className="bg-white shadow-lg rounded-lg p-6">
             <h3 className="text-lg font-semibold mb-4">Create Voters</h3>
-            {/* Voter Card */}
             <VoterCard
-              voters={pollBuffer.voters} // Pass current voters list
+              voters={pollBuffer.voters}
               updateVoter={(id, newName, newEmail) => {
-                updateVoter(id, newName, newEmail); // Trigger update
+                updateVoter(id, newName, newEmail);
               }}
               removeVoter={(id) => {
-                removeVoter(id); // Trigger remove
+                removeVoter(id);
               }}
             />
-
-            {/* Add Voter Button */}
             <button
               onClick={() => {
                 addVoter({
-                  id: Math.floor(Math.random() * 10000) + 1, // Use timestamp for unique ID
+                  id: Math.floor(Math.random() * 10000) + 1,
                   pollId: pollBuffer.poll.id,
                   name: "",
                   email: "",
@@ -155,20 +143,17 @@ const AddPollPage: React.FC = () => {
             </button>
           </div>
         )}
-
-        {/* Step 4: Finish */}
         {step === 4 && (
           <div className="bg-white shadow-lg rounded-lg p-6 text-center">
             <p>Your poll has been successfully created!</p>
             <button
-              onClick={submitPoll} // Call the function that creates the poll
+              onClick={submitPoll}
               className="mt-4 bg-blue-500 text-white py-2 px-6 rounded-lg"
             >
               Go to Polls
             </button>
           </div>
         )}
-        {/* Navigation Buttons */}
         <div className="flex justify-between mt-6">
           <button
             onClick={goBack}

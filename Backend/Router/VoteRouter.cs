@@ -48,7 +48,7 @@ namespace Oscars.Backend.Router
 
             if (results.Count == 0)
             {
-                return Ok(results);  // Return empty array instead of NotFound
+                return Ok(results);
             }
             return Ok(results);
         }

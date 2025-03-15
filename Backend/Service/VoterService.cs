@@ -57,7 +57,6 @@ namespace Oscars.Backend.Service
             return voter;
         }
 
-        //READ ALL CATEGORIES
         public List<VoterWithCodeDto> GetAll()
         {
             List<VoterWithCodeDto> votersDto = [];
@@ -109,7 +108,6 @@ namespace Oscars.Backend.Service
             return votersDto;
         }
 
-        //READ A CATEGORY
         public VoterWithCodeDto? GetById(int voterId)
         {
             VoterWithCodeDto? voterDto = null;
@@ -135,7 +133,7 @@ namespace Oscars.Backend.Service
             return voterDto;
         }
 
-        public VoterWithCodeDto getVoterByCode(string code)
+        public VoterWithCodeDto? getVoterByCode(string code)
         {
             VoterWithCodeDto? voterDto = null;
             using var connection = new NpgsqlConnection(_connectionString);
@@ -160,7 +158,6 @@ namespace Oscars.Backend.Service
             return voterDto;
         }
 
-        //UPDATE A CATEGORY
         public Voter Update(VoterDto voterDto)
         {
             var voter = new Voter
@@ -191,7 +188,6 @@ namespace Oscars.Backend.Service
             cmd.ExecuteNonQuery();
         }
 
-        //DELETE A CATEGORY
         public void Delete(int id)
         {
             using var connection = new NpgsqlConnection(_connectionString);

@@ -10,7 +10,6 @@ namespace Oscars.Backend.Router
     {
         private readonly VoterService _voterService = voterService;
 
-        //GET ALL CATEGORY
         [HttpGet]
         public ActionResult GetAll()
         {
@@ -22,7 +21,6 @@ namespace Oscars.Backend.Router
             return Ok(voter);
         }
 
-        //GET A VOTER BY POLL
         [HttpGet("poll/{pollId}")]
         public ActionResult GetByPoll(int pollId)
         {
@@ -33,7 +31,6 @@ namespace Oscars.Backend.Router
             }
             return Ok(voter);
         }
-        //GET A CATEGORY
         [HttpGet("{id}")]
         public ActionResult GetById(int id)
         {
@@ -52,7 +49,6 @@ namespace Oscars.Backend.Router
             return NoContent();
         }
 
-        //CREATE A CATEGORY
         [HttpPost]
         public ActionResult Create([FromBody] VoterDto voterDto)
         {
@@ -60,7 +56,6 @@ namespace Oscars.Backend.Router
             return CreatedAtAction(nameof(GetById), new { id = voter.Id }, voter);
         }
 
-        //UPDATE A CATEGORY
         [HttpPut("{id}")]
         public ActionResult Update(int id, [FromBody] VoterDto voterDto)
         {
@@ -83,7 +78,6 @@ namespace Oscars.Backend.Router
             return Ok(voter);
         }
 
-        //DELETE A CATEGORY
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {

@@ -54,7 +54,6 @@ export const login = async (credentials: LoginCredentials): Promise<string> => {
   }
 };
 
-// Function to register a new user
 export const register = async (userDetails: RegisterDetails): Promise<ApiResponse<RegisterDetails>> => {
   try {
     const response = await fetch(`${API_URL}/auth/register`, {
@@ -87,13 +86,11 @@ export const register = async (userDetails: RegisterDetails): Promise<ApiRespons
   }
 };
 
-// Function to check if user is already logged in based on token in localStorage
 export const isAuthenticated = (): boolean => {
   const token = localStorage.getItem("auth_token");
   return token !== null;
 };
 
-// Function to logout the user
 export const logout = (): void => {
   localStorage.removeItem("auth_token");
   window.location.href = "/login";

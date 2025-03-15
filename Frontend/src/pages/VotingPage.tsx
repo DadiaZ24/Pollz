@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getQuestionsByPollId, Question } from "../services/QuestionService";
 import { createVote } from "../services/VoteService";
-import { getVoterByCode } from "../services/VoterService"; // Assuming you have a service for this
+import { getVoterByCode } from "../services/VoterService";
 import { getAnswersByQuestionId, Answer } from "../services/AnswerService";
 import Footer from "../components/footer";
 import HeaderGuest from "../components/header_guest";
@@ -81,7 +81,7 @@ const VotingPage: React.FC = () => {
         }
       });
       await Promise.all(votePromises);
-      setError(""); // Clear any existing error
+      setError("");
       setSuccessMessage("Your vote has been successfully submitted!");
     } catch (err) {
       console.error("Error during vote submission:", err);

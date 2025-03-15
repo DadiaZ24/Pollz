@@ -15,7 +15,6 @@ using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//COMMAND TO MIGRATE DATABASE
 if (args.Length > 0 && args[0] == "migrate")
 {
     var scriptPath = args.Length > 1 ? args[1] : "./Data/01-Migration.sql";
@@ -34,7 +33,6 @@ builder.Services.AddLogging(config =>
     config.AddDebug();
 });
 
-//ALLOW FRONTEND
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
@@ -51,10 +49,8 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -172,10 +168,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-//Use Cors
-
-//CORS configuration
-
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
@@ -204,7 +196,6 @@ app.MapGet("/api/auth/test", () => "Backend is reachable.");
 app.UseDeveloperExceptionPage();
 
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

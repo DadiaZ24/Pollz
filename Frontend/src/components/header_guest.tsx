@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png"; // Ensure the path is correct
+import logo from "../assets/logo.png";
 import { getAllPolls } from "../services/PollsService";
 import "../i18n";
 import { getUserIdFromToken } from "../hooks/User";
@@ -30,11 +30,9 @@ const HeaderGuest: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Fetch user data from the decoded JWT token
     const userId = getUserIdFromToken();
     if (userId !== null) {
-      // Example logic to fetch user name based on userId (replace with actual user data)
-      const fetchedUser = { id: userId, name: `User ${userId}` }; // Replace with actual API call to fetch user info
+      const fetchedUser = { id: userId, name: `User ${userId}` };
       setUser(fetchedUser);
     }
   }, []);
@@ -42,7 +40,6 @@ const HeaderGuest: React.FC = () => {
   return (
     <header className="bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg">
       <nav className="container mx-auto flex justify-left items-center p-4">
-        {/* Logo Section */}
         <div className="flex items-center space-x-8 cursor-pointer">
           <img
             src={logo}
@@ -51,8 +48,6 @@ const HeaderGuest: React.FC = () => {
             onClick={() => (window.location.href = "/")}
           />
         </div>
-
-        {/* Nav Links */}
         <ul className="ml-11 hidden md:flex space-x-4 justify-left">
           <li className="w-full relative">
             <Link

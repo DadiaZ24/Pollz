@@ -1,24 +1,22 @@
-// src/components/LoginForm.tsx
-
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { login } from "../../services/AuthService"; // Ensure getVoterByCode is imported
-import { getVoterByCode } from "../../services/VoterService"; // Import getVoterByCode
+import { login } from "../../services/AuthService";
+import { getVoterByCode } from "../../services/VoterService";
 import { useNavigate } from "react-router-dom";
 
 interface LoginFormState {
   username: string;
   password: string;
-  uniquecode: string; // Add uniquecode to the form state
+  uniquecode: string;
 }
 
 const LoginForm: React.FC = () => {
   const [form, setForm] = useState<LoginFormState>({
     username: "",
     password: "",
-    uniquecode: "", // Initialize uniquecode in the state
+    uniquecode: "",
   });
   const [error, setError] = useState<string | null>(null);
-  const navigate = useNavigate(); // Use the useNavigate hook
+  const navigate = useNavigate();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -93,8 +91,6 @@ const LoginForm: React.FC = () => {
             </div>
           </>
         )}
-
-        {/* Unique Code Field (visible if uniquecode is entered or empty) */}
         <div className="mb-4">
           <label className="block text-gray-300 mb-2">Unique Code</label>
           <input

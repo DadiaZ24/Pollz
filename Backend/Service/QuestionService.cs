@@ -13,7 +13,6 @@ namespace Oscars.Backend.Service
             _connectionString = connectionString;
         }
 
-        //CREATE A CATEGORY
         public Question Create(QuestionDto questionDto)
         {
             var question = new Question
@@ -33,7 +32,6 @@ namespace Oscars.Backend.Service
             cmd.Parameters.AddWithValue("@3", question.pollId);
             var reader = cmd.ExecuteReader();
 
-            Console.WriteLine("///////////////////////////\nQUERY ==== " + cmd.CommandText + "\n///////////////////////////");
 
             while (reader.Read())
             {
@@ -44,7 +42,6 @@ namespace Oscars.Backend.Service
             return question;
         }
 
-        //READ ALL CATEGORIES
         public List<QuestionDto> GetAll()
         {
             List<QuestionDto> questionsDto = [];
@@ -94,7 +91,6 @@ namespace Oscars.Backend.Service
             return questionsDto;
         }
 
-        //READ A CATEGORY
         public QuestionDto? GetById(int questionId)
         {
             QuestionDto? questionDto = null;
@@ -119,7 +115,6 @@ namespace Oscars.Backend.Service
             return questionDto;
         }
 
-        //UPDATE A CATEGORY
         public Question Update(QuestionDto questionDto)
         {
             var question = new Question
@@ -143,7 +138,6 @@ namespace Oscars.Backend.Service
             return question;
         }
 
-        //DELETE A CATEGORY
         public void Delete(int id)
         {
             using var connection = new NpgsqlConnection(_connectionString);

@@ -10,7 +10,6 @@ namespace Oscars.Backend.Router
     {
         private readonly AnswerService _answerService = answerService;
 
-        //GET ALL NOMINEE
         [HttpGet]
         public ActionResult GetAll()
         {
@@ -33,7 +32,6 @@ namespace Oscars.Backend.Router
             return Ok(answer);
         }
 
-        //GET A NOMINEE
         [HttpGet("{id}")]
         public ActionResult GetById(int id)
         {
@@ -44,16 +42,12 @@ namespace Oscars.Backend.Router
             }
             return Ok(answer);
         }
-
-        //CREATE A NOMINEE
         [HttpPost]
         public ActionResult Create([FromBody] AnswerDto answerDto)
         {
             var answer = _answerService.Create(answerDto);
             return CreatedAtAction(nameof(GetById), new { id = answer.Id }, answer);
         }
-
-        //UPDATE A NOMINEE
         [HttpPut("{id}")]
         public ActionResult Update(int id, [FromBody] AnswerDto answerDto)
         {
@@ -64,8 +58,6 @@ namespace Oscars.Backend.Router
             _answerService.Update(answerDto);
             return NoContent();
         }
-
-        //DELETE A NOMINEE
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {

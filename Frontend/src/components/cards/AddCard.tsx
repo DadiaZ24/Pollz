@@ -1,8 +1,8 @@
 import React from "react";
-import addIcon from "../../assets/add.png"; // Path to your "+" icon image
+import addIcon from "../../assets/add.png";
 
 interface AddCardProps {
-  onClick: () => void; // Callback function when the card is clicked
+  onClick: () => void;
 }
 
 const AddCard: React.FC<AddCardProps> = ({ onClick }) => {

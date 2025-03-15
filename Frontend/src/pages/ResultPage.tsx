@@ -6,14 +6,14 @@ import { getResultsByQuestionId, Result } from "../services/VoteService";
 import { getQuestionsByPollId, Question } from "../services/QuestionService";
 import { getPollById } from "../services/PollsService";
 import { getVotersByPollId, Voter } from "../services/VoterService";
-import { getAnswersByQuestionId, Answer } from "../services/AnswerService"; // Assuming a service to get answers
+import { getAnswersByQuestionId, Answer } from "../services/AnswerService";
 
 const ResultsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [, setPoll] = useState<unknown>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [results, setResults] = useState<Record<number, Result[]>>({});
-  const [answers, setAnswers] = useState<Record<number, Answer[]>>({}); // Store answers for each question
+  const [answers, setAnswers] = useState<Record<number, Answer[]>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [, setVoters] = useState<Voter[]>([]);
@@ -57,14 +57,13 @@ const ResultsPage: React.FC = () => {
 
         for (const question of questions) {
           const resultsForQuestion = await getResultsByQuestionId(question.id);
-          const answersForQuestion = await getAnswersByQuestionId(question.id); // Fetch answers dynamically
+          const answersForQuestion = await getAnswersByQuestionId(question.id);
 
-          fetchedAnswers[question.id] = answersForQuestion; // Save the answers for this question
+          fetchedAnswers[question.id] = answersForQuestion;
 
           if (resultsForQuestion && resultsForQuestion.length > 0) {
             fetchedResults[question.id] = resultsForQuestion;
           } else {
-            // If no results, set vote count to 0
             const emptyResults = answersForQuestion.map((answer) => ({
               answerId: answer.id,
               answer: answer.title,
@@ -76,7 +75,7 @@ const ResultsPage: React.FC = () => {
         }
 
         setResults(fetchedResults);
-        setAnswers(fetchedAnswers); // Store the answers for later use
+        setAnswers(fetchedAnswers);
       } catch (err) {
         if (err instanceof Error) {
           console.error("Error fetching results:", err.message);

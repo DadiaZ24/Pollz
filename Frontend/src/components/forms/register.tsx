@@ -1,5 +1,3 @@
-// src/components/RegisterForm.tsx
-
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { register } from "../../services/AuthService";
 
@@ -7,7 +5,7 @@ interface RegisterFormState {
   username: string;
   email: string;
   password: string;
-  role: "admin" | "user"; // Ensuring role is one of these two options
+  role: "admin" | "user";
 }
 
 const RegisterForm: React.FC = () => {

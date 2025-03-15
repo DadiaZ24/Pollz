@@ -19,7 +19,7 @@ namespace Oscars.Backend.Utils
 			{
 				return result;
 			}
-			return null;  // Return null if parsing fails
+			return null;
 		}
 	}
 }

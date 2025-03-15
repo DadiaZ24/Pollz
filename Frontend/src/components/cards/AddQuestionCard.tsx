@@ -31,7 +31,6 @@ const AddQuestionCard: React.FC<AddQuestionCardProps> = ({
 
   return (
     <div className="h-full bg-gradient-to-r from-blue-600 to-purple-500 shadow-md rounded-lg p-6 flex flex-col">
-      {/* New Question Title */}
       <div className="mb-4">
         <label className="text-gray-200 block mb-2">Title:</label>
         <input
@@ -42,8 +41,6 @@ const AddQuestionCard: React.FC<AddQuestionCardProps> = ({
           placeholder="Enter question title"
         />
       </div>
-
-      {/* New Question Description */}
       <div className="mb-4">
         <label className="text-gray-200 block mb-2">Description:</label>
         <input
@@ -54,8 +51,6 @@ const AddQuestionCard: React.FC<AddQuestionCardProps> = ({
           placeholder="Enter question description"
         />
       </div>
-
-      {/* Save Question */}
       <button
         onClick={handleSaveQuestion}
         className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"

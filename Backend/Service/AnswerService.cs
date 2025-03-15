@@ -13,7 +13,6 @@ namespace Oscars.Backend.Service
             _connectionString = connectionString;
         }
 
-        //CREATE A Nominee
         public Answer Create(AnswerDto answersDto)
         {
             var answer = new Answer
@@ -40,7 +39,6 @@ namespace Oscars.Backend.Service
             return answer;
         }
 
-        //READ ALL CATEGORIES
         public List<AnswerDto> GetAll()
         {
             List<AnswerDto> answersDto = [];
@@ -88,7 +86,6 @@ namespace Oscars.Backend.Service
             return answersDto;
         }
 
-        //READ A Nominee
         public AnswerDto? GetById(int answerId)
         {
             AnswerDto? answerDto = null;
@@ -112,7 +109,6 @@ namespace Oscars.Backend.Service
             return answerDto;
         }
 
-        //UPDATE A Nominee
         public Answer Update(AnswerDto answerDto)
         {
             var answer = new Answer
@@ -133,7 +129,6 @@ namespace Oscars.Backend.Service
             return answer;
         }
 
-        //DELETE A Nominee
         public void Delete(int id)
         {
             using var connection = new NpgsqlConnection(_connectionString);

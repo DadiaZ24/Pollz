@@ -1,5 +1,3 @@
-// src/pages/LoginPage.tsx
-
 import React, { useEffect } from "react";
 import LoginForm from "../../components/forms/login";
 import { isAuthenticated } from "../../services/AuthService";

@@ -42,8 +42,6 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         {question.title}
       </h3>
       <p className="text-gray-200 block mb-2 text-l">{question.description}</p>
-
-      {/* Render answers related to this question */}
       <div className="mt-4">
         <h5 className="text-gray-200 text-3xl block mb-2 font-bold">Answers</h5>
         {answers.map((answer) => (

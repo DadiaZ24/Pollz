@@ -5,7 +5,6 @@ import { Answer, createAnswer } from "../services/AnswerService";
 import { getUserIdFromToken } from "./User";
 import { createVoter, Voter } from "../services/VoterService";
 
-// Define the structure for poll data
 export interface PollBuffer {
   poll: Poll;
   questions: {
@@ -16,7 +15,7 @@ export interface PollBuffer {
 }
 
 export const useAddPoll = () => {
-  const [step, setStep] = useState(1); // Track the current step
+  const [step, setStep] = useState(1);
   const [pollBuffer, setPollBuffer] = useState<PollBuffer>({
     poll: {
       id: 0,
@@ -32,16 +31,12 @@ export const useAddPoll = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // POLL FUNCTIONS
-
   const updatePollInfo = (field: "title" | "description", value: string) => {
     setPollBuffer((prevBuffer) => ({
       ...prevBuffer,
       poll: { ...prevBuffer.poll, [field]: value },
     }));
   };
-
-  // QUESTION FUNCTIONS
 
   const addQuestion = (newQuestion: Question) => {
     setPollBuffer((prev) => ({
@@ -73,8 +68,6 @@ export const useAddPoll = () => {
       questions: prev.questions.filter((q) => q.question.id !== questionId),
     }));
   };
-
-  // ANSWER FUNCTIONS
 
   const addAnswer = (questionId: number, newAnswer: Answer) => {
     setPollBuffer((prev) => ({
@@ -121,7 +114,6 @@ export const useAddPoll = () => {
     }));
   };
 
-  // VOTER FUNCTIONS
   const addVoter = (newVoter: Voter) => {
     setPollBuffer((prev) => ({
       ...prev,
@@ -145,8 +137,6 @@ export const useAddPoll = () => {
     }));
   };
 
-  // STEP FUNCTIONS
-
   const goNext = () => {
     if (step < 4) {
       setStep(step + 1);
@@ -164,7 +154,6 @@ export const useAddPoll = () => {
       setLoading(true);
       setError(null);
 
-      // Validate poll data
       if (!pollBuffer.poll.title || !pollBuffer.poll.description) {
         alert("Poll title and description are required.");
         return;
@@ -175,7 +164,6 @@ export const useAddPoll = () => {
         return;
       }
 
-      // Create questions and answers
       if (pollBuffer.questions.length === 0) {
         setError("Poll has no questions.");
         alert("Poll has no questions.");
@@ -212,7 +200,6 @@ export const useAddPoll = () => {
         return;
       }
 
-      // Create the poll and get the poll ID
       const pollResponse = await createPoll(pollBuffer.poll);
 
       const createdQuestions = await Promise.all(
@@ -232,12 +219,11 @@ export const useAddPoll = () => {
         })
       );
 
-      // Create voters only after the poll is created
       const createdVoters = await Promise.all(
         pollBuffer.voters.map(async (voter) => {
           const voterResponse = await createVoter({
             ...voter,
-            pollId: pollResponse.id, // Associate the voter with the created poll
+            pollId: pollResponse.id,
           });
 
           return voterResponse;
@@ -251,7 +237,6 @@ export const useAddPoll = () => {
         voters: createdVoters,
       });
 
-      // Reset poll state and step
       setPollBuffer({
         poll: {
           id: 0,

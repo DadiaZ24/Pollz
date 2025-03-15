@@ -10,7 +10,6 @@ namespace Oscars.Backend.Router
     {
         private readonly QuestionService _questionService = questionService;
 
-        //GET ALL CATEGORY
         [HttpGet]
         public ActionResult GetAll()
         {
@@ -32,7 +31,6 @@ namespace Oscars.Backend.Router
             }
             return Ok(question);
         }
-        //GET A CATEGORY
         [HttpGet("{id}")]
         public ActionResult GetById(int id)
         {
@@ -44,7 +42,6 @@ namespace Oscars.Backend.Router
             return Ok(question);
         }
 
-        //CREATE A CATEGORY
         [HttpPost]
         public ActionResult Create([FromBody] QuestionDto questionDto)
         {
@@ -52,7 +49,6 @@ namespace Oscars.Backend.Router
             return CreatedAtAction(nameof(GetById), new { id = question.Id }, question);
         }
 
-        //UPDATE A CATEGORY
         [HttpPut("{id}")]
         public ActionResult Update(int id, [FromBody] QuestionDto questionDto)
         {
@@ -64,7 +60,6 @@ namespace Oscars.Backend.Router
             return NoContent();
         }
 
-        //DELETE A CATEGORY
         [HttpDelete("{id}")]
         public ActionResult DeleteCategory(int id)
         {

@@ -5,8 +5,6 @@ using Oscars.Backend.Service;
 
 namespace Oscars.Backend.Router
 {
-
-	//AUTHENTICATION
 	[EnableCors("AllowFrontend")]
 	[ApiController]
 	[Route("api/auth")]

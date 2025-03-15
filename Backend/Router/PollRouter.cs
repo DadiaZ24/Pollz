@@ -10,7 +10,6 @@ namespace Oscars.Backend.Router
 	{
 		private readonly PollService _pollService = pollService;
 
-		//GET ALL Answer
 		[HttpGet]
 		public ActionResult GetAll()
 		{
@@ -22,7 +21,6 @@ namespace Oscars.Backend.Router
 			return Ok(poll);
 		}
 
-		//GET A Answer
 		[HttpGet("{id}")]
 		public ActionResult GetById(int id)
 		{
@@ -34,7 +32,6 @@ namespace Oscars.Backend.Router
 			return Ok(poll);
 		}
 
-		//CREATE A Answer
 		[HttpPost]
 		public ActionResult Create([FromBody] PollDto pollDto)
 		{
@@ -42,7 +39,6 @@ namespace Oscars.Backend.Router
 			return CreatedAtAction(nameof(GetById), new { id = poll.Id }, poll);
 		}
 
-		//UPDATE A Answer
 		[HttpPut("{id}")]
 		public ActionResult Update(int id, [FromBody] PollDto pollDto)
 		{
@@ -54,7 +50,6 @@ namespace Oscars.Backend.Router
 			return NoContent();
 		}
 
-		//DELETE A Answer
 		[HttpDelete("{id}")]
 		public ActionResult Delete(int id)
 		{
