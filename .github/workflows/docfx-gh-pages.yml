@@ -24,12 +24,14 @@ jobs:
       with:
         ref: gh-pages
 
+    - name: List Files in the Repository
+      run: ls -R  # Debugging step to list files in the repository
+
     - name: Dotnet Setup
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.x
-    - run: ls -R
-
+    
     - run: dotnet tool update -g docfx
 
     - run: docfx build ./docfx.json
