@@ -1,0 +1,435 @@
+### YamlMime:ManagedReference
+items:
+- uid: Oscars.Backend.Service.IUserService
+  commentId: T:Oscars.Backend.Service.IUserService
+  id: IUserService
+  parent: Oscars.Backend.Service
+  children:
+  - Oscars.Backend.Service.IUserService.CreateUser(Oscars.Backend.Dtos.UserDto)
+  - Oscars.Backend.Service.IUserService.DeleteUser(System.Int32)
+  - Oscars.Backend.Service.IUserService.GetAllUsers
+  - Oscars.Backend.Service.IUserService.GetUserById(System.Int32)
+  - Oscars.Backend.Service.IUserService.UpdateUser(System.Int32,Oscars.Backend.Dtos.UserDto)
+  langs:
+  - csharp
+  - vb
+  name: IUserService
+  nameWithType: IUserService
+  fullName: Oscars.Backend.Service.IUserService
+  type: Interface
+  source:
+    remote:
+      path: Backend/Service/UserService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: IUserService
+    path: ../Backend/Service/UserService.cs
+    startLine: 9
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  summary: Interface for user service.
+  example: []
+  syntax:
+    content: public interface IUserService
+    content.vb: Public Interface IUserService
+- uid: Oscars.Backend.Service.IUserService.GetAllUsers
+  commentId: M:Oscars.Backend.Service.IUserService.GetAllUsers
+  id: GetAllUsers
+  parent: Oscars.Backend.Service.IUserService
+  langs:
+  - csharp
+  - vb
+  name: GetAllUsers()
+  nameWithType: IUserService.GetAllUsers()
+  fullName: Oscars.Backend.Service.IUserService.GetAllUsers()
+  type: Method
+  source:
+    remote:
+      path: Backend/Service/UserService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: GetAllUsers
+    path: ../Backend/Service/UserService.cs
+    startLine: 11
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  syntax:
+    content: IEnumerable<User> GetAllUsers()
+    return:
+      type: System.Collections.Generic.IEnumerable{Oscars.Models.User}
+    content.vb: Function GetAllUsers() As IEnumerable(Of User)
+  overload: Oscars.Backend.Service.IUserService.GetAllUsers*
+- uid: Oscars.Backend.Service.IUserService.GetUserById(System.Int32)
+  commentId: M:Oscars.Backend.Service.IUserService.GetUserById(System.Int32)
+  id: GetUserById(System.Int32)
+  parent: Oscars.Backend.Service.IUserService
+  langs:
+  - csharp
+  - vb
+  name: GetUserById(int)
+  nameWithType: IUserService.GetUserById(int)
+  fullName: Oscars.Backend.Service.IUserService.GetUserById(int)
+  type: Method
+  source:
+    remote:
+      path: Backend/Service/UserService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: GetUserById
+    path: ../Backend/Service/UserService.cs
+    startLine: 12
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  syntax:
+    content: User GetUserById(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: Oscars.Models.User
+    content.vb: Function GetUserById(id As Integer) As User
+  overload: Oscars.Backend.Service.IUserService.GetUserById*
+  nameWithType.vb: IUserService.GetUserById(Integer)
+  fullName.vb: Oscars.Backend.Service.IUserService.GetUserById(Integer)
+  name.vb: GetUserById(Integer)
+- uid: Oscars.Backend.Service.IUserService.CreateUser(Oscars.Backend.Dtos.UserDto)
+  commentId: M:Oscars.Backend.Service.IUserService.CreateUser(Oscars.Backend.Dtos.UserDto)
+  id: CreateUser(Oscars.Backend.Dtos.UserDto)
+  parent: Oscars.Backend.Service.IUserService
+  langs:
+  - csharp
+  - vb
+  name: CreateUser(UserDto)
+  nameWithType: IUserService.CreateUser(UserDto)
+  fullName: Oscars.Backend.Service.IUserService.CreateUser(Oscars.Backend.Dtos.UserDto)
+  type: Method
+  source:
+    remote:
+      path: Backend/Service/UserService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: CreateUser
+    path: ../Backend/Service/UserService.cs
+    startLine: 13
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  syntax:
+    content: void CreateUser(UserDto userDto)
+    parameters:
+    - id: userDto
+      type: Oscars.Backend.Dtos.UserDto
+    content.vb: Sub CreateUser(userDto As UserDto)
+  overload: Oscars.Backend.Service.IUserService.CreateUser*
+- uid: Oscars.Backend.Service.IUserService.UpdateUser(System.Int32,Oscars.Backend.Dtos.UserDto)
+  commentId: M:Oscars.Backend.Service.IUserService.UpdateUser(System.Int32,Oscars.Backend.Dtos.UserDto)
+  id: UpdateUser(System.Int32,Oscars.Backend.Dtos.UserDto)
+  parent: Oscars.Backend.Service.IUserService
+  langs:
+  - csharp
+  - vb
+  name: UpdateUser(int, UserDto)
+  nameWithType: IUserService.UpdateUser(int, UserDto)
+  fullName: Oscars.Backend.Service.IUserService.UpdateUser(int, Oscars.Backend.Dtos.UserDto)
+  type: Method
+  source:
+    remote:
+      path: Backend/Service/UserService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: UpdateUser
+    path: ../Backend/Service/UserService.cs
+    startLine: 14
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  syntax:
+    content: void UpdateUser(int id, UserDto userDto)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: userDto
+      type: Oscars.Backend.Dtos.UserDto
+    content.vb: Sub UpdateUser(id As Integer, userDto As UserDto)
+  overload: Oscars.Backend.Service.IUserService.UpdateUser*
+  nameWithType.vb: IUserService.UpdateUser(Integer, UserDto)
+  fullName.vb: Oscars.Backend.Service.IUserService.UpdateUser(Integer, Oscars.Backend.Dtos.UserDto)
+  name.vb: UpdateUser(Integer, UserDto)
+- uid: Oscars.Backend.Service.IUserService.DeleteUser(System.Int32)
+  commentId: M:Oscars.Backend.Service.IUserService.DeleteUser(System.Int32)
+  id: DeleteUser(System.Int32)
+  parent: Oscars.Backend.Service.IUserService
+  langs:
+  - csharp
+  - vb
+  name: DeleteUser(int)
+  nameWithType: IUserService.DeleteUser(int)
+  fullName: Oscars.Backend.Service.IUserService.DeleteUser(int)
+  type: Method
+  source:
+    remote:
+      path: Backend/Service/UserService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: DeleteUser
+    path: ../Backend/Service/UserService.cs
+    startLine: 15
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  syntax:
+    content: void DeleteUser(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    content.vb: Sub DeleteUser(id As Integer)
+  overload: Oscars.Backend.Service.IUserService.DeleteUser*
+  nameWithType.vb: IUserService.DeleteUser(Integer)
+  fullName.vb: Oscars.Backend.Service.IUserService.DeleteUser(Integer)
+  name.vb: DeleteUser(Integer)
+references:
+- uid: Oscars.Backend.Service
+  commentId: N:Oscars.Backend.Service
+  href: Oscars.html
+  name: Oscars.Backend.Service
+  nameWithType: Oscars.Backend.Service
+  fullName: Oscars.Backend.Service
+  spec.csharp:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Backend
+    name: Backend
+    href: Oscars.Backend.html
+  - name: .
+  - uid: Oscars.Backend.Service
+    name: Service
+    href: Oscars.Backend.Service.html
+  spec.vb:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Backend
+    name: Backend
+    href: Oscars.Backend.html
+  - name: .
+  - uid: Oscars.Backend.Service
+    name: Service
+    href: Oscars.Backend.Service.html
+- uid: Oscars.Backend.Service.IUserService.GetAllUsers*
+  commentId: Overload:Oscars.Backend.Service.IUserService.GetAllUsers
+  href: Oscars.Backend.Service.IUserService.html#Oscars_Backend_Service_IUserService_GetAllUsers
+  name: GetAllUsers
+  nameWithType: IUserService.GetAllUsers
+  fullName: Oscars.Backend.Service.IUserService.GetAllUsers
+- uid: System.Collections.Generic.IEnumerable{Oscars.Models.User}
+  commentId: T:System.Collections.Generic.IEnumerable{Oscars.Models.User}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<User>
+  nameWithType: IEnumerable<User>
+  fullName: System.Collections.Generic.IEnumerable<Oscars.Models.User>
+  nameWithType.vb: IEnumerable(Of User)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Oscars.Models.User)
+  name.vb: IEnumerable(Of User)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Oscars.Models.User
+    name: User
+    href: Oscars.Models.User.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Oscars.Models.User
+    name: User
+    href: Oscars.Models.User.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Oscars.Backend.Service.IUserService.GetUserById*
+  commentId: Overload:Oscars.Backend.Service.IUserService.GetUserById
+  href: Oscars.Backend.Service.IUserService.html#Oscars_Backend_Service_IUserService_GetUserById_System_Int32_
+  name: GetUserById
+  nameWithType: IUserService.GetUserById
+  fullName: Oscars.Backend.Service.IUserService.GetUserById
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Oscars.Models.User
+  commentId: T:Oscars.Models.User
+  parent: Oscars.Models
+  href: Oscars.Models.User.html
+  name: User
+  nameWithType: User
+  fullName: Oscars.Models.User
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Oscars.Models
+  commentId: N:Oscars.Models
+  href: Oscars.html
+  name: Oscars.Models
+  nameWithType: Oscars.Models
+  fullName: Oscars.Models
+  spec.csharp:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Models
+    name: Models
+    href: Oscars.Models.html
+  spec.vb:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Models
+    name: Models
+    href: Oscars.Models.html
+- uid: Oscars.Backend.Service.IUserService.CreateUser*
+  commentId: Overload:Oscars.Backend.Service.IUserService.CreateUser
+  href: Oscars.Backend.Service.IUserService.html#Oscars_Backend_Service_IUserService_CreateUser_Oscars_Backend_Dtos_UserDto_
+  name: CreateUser
+  nameWithType: IUserService.CreateUser
+  fullName: Oscars.Backend.Service.IUserService.CreateUser
+- uid: Oscars.Backend.Dtos.UserDto
+  commentId: T:Oscars.Backend.Dtos.UserDto
+  parent: Oscars.Backend.Dtos
+  href: Oscars.Backend.Dtos.UserDto.html
+  name: UserDto
+  nameWithType: UserDto
+  fullName: Oscars.Backend.Dtos.UserDto
+- uid: Oscars.Backend.Dtos
+  commentId: N:Oscars.Backend.Dtos
+  href: Oscars.html
+  name: Oscars.Backend.Dtos
+  nameWithType: Oscars.Backend.Dtos
+  fullName: Oscars.Backend.Dtos
+  spec.csharp:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Backend
+    name: Backend
+    href: Oscars.Backend.html
+  - name: .
+  - uid: Oscars.Backend.Dtos
+    name: Dtos
+    href: Oscars.Backend.Dtos.html
+  spec.vb:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Backend
+    name: Backend
+    href: Oscars.Backend.html
+  - name: .
+  - uid: Oscars.Backend.Dtos
+    name: Dtos
+    href: Oscars.Backend.Dtos.html
+- uid: Oscars.Backend.Service.IUserService.UpdateUser*
+  commentId: Overload:Oscars.Backend.Service.IUserService.UpdateUser
+  href: Oscars.Backend.Service.IUserService.html#Oscars_Backend_Service_IUserService_UpdateUser_System_Int32_Oscars_Backend_Dtos_UserDto_
+  name: UpdateUser
+  nameWithType: IUserService.UpdateUser
+  fullName: Oscars.Backend.Service.IUserService.UpdateUser
+- uid: Oscars.Backend.Service.IUserService.DeleteUser*
+  commentId: Overload:Oscars.Backend.Service.IUserService.DeleteUser
+  href: Oscars.Backend.Service.IUserService.html#Oscars_Backend_Service_IUserService_DeleteUser_System_Int32_
+  name: DeleteUser
+  nameWithType: IUserService.DeleteUser
+  fullName: Oscars.Backend.Service.IUserService.DeleteUser

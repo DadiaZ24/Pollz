@@ -1,24 +1,29 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Oscars.Backend.Model;
-using Microsoft.EntityFrameworkCore.Design;
 using Npgsql;
 using System.Data;
 
 namespace Oscars.Data
 {
-    public class DBConnection
+    /// <summary>
+    /// Class for managing database connections and running migrations.
+    /// </summary>
+    public class DBConnection(IConfiguration configuration)
     {
-        private readonly IConfiguration _configuration;
-        public DBConnection(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+        private readonly IConfiguration _configuration = configuration;
+        /// <summary>
+        /// Creates a new database connection.
+        /// </summary>
+        /// <returns>An <see cref="IDbConnection"/> object.</returns>
         public IDbConnection CreateConnection()
         {
             var connectionString = _configuration.GetConnectionString("DefaultConnection");
             return new NpgsqlConnection(connectionString);
         }
-
+        /// <summary>
+        /// Runs database migrations asynchronously.
+        /// </summary>
+        /// <param name="connectionString">The database connection string.</param>
+        /// <param name="scriptPath">The path to the SQL script file.</param>
         public static async Task RunMigrationsAsync(string connectionString, string scriptPath)
         {
             var sqlScript = await File.ReadAllTextAsync(scriptPath);

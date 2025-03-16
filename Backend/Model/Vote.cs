@@ -1,5 +1,12 @@
 ﻿namespace Oscars.Backend.Model
 {
+    /// <summary>
+    /// Represents a vote in the polling system.
+    /// </summary>
+    /// <remarks>
+    /// The <see cref="Vote"/> class contains information about a vote, including the IDs of the vote, answer, question, and voter,
+    /// as well as timestamps for when the vote was created and last updated.
+    /// </remarks>
     public class Vote
     {
         public required int Id { get; set; }

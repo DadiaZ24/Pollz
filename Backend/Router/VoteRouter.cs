@@ -4,12 +4,19 @@ using Oscars.Backend.Service;
 
 namespace Oscars.Backend.Router
 {
+    /// <summary>
+    /// Router for handling vote-related requests.
+    /// </summary>
     [ApiController]
     [Route("api/vote")]
     public class VoteRouter(VoteService voteService) : ControllerBase
     {
         private readonly VoteService _voteService = voteService;
-
+        /// <summary>
+        /// Inserts a new vote or updates an existing vote.
+        /// </summary>
+        /// <param name="voteRequestDto">The vote request data transfer object containing vote details.</param>
+        /// <returns>An <see cref="IActionResult"/> indicating the result of the vote insertion or update.</returns>
         [HttpPost]
         public async Task<IActionResult> Insert(VoteRequestDto voteRequestDto)
         {
@@ -40,7 +47,11 @@ namespace Oscars.Backend.Router
                 }
             }
         }
-
+        /// <summary>
+        /// Gets the results of a vote by question ID.
+        /// </summary>
+        /// <param name="questionId">The question ID.</param>
+        /// <returns>An <see cref="IActionResult"/> containing the vote results.</returns>
         [HttpGet("{questionId}")]
         public async Task<IActionResult> GetResults(int questionId)
         {

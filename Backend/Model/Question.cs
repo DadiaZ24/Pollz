@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using Oscars.Backend.Model;
-
-namespace Oscars.Backend.Model
+﻿namespace Oscars.Backend.Model
 {
+    /// <summary>
+    /// Represents a question in a poll.
+    /// </summary>
     public class Question
     {
         public required int Id { get; set; }

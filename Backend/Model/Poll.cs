@@ -1,5 +1,8 @@
 namespace Oscars.Backend.Model
 {
+	/// <summary>
+	/// Represents a poll created by a user.
+	/// </summary>
 	public class Poll
 	{
 		public required int Id { get; set; }

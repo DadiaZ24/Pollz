@@ -5,10 +5,17 @@ using Oscars.Backend.Utils;
 
 namespace Oscars.Backend.Service
 {
+	/// <summary>
+	/// Service for handling poll-related operations.
+	/// </summary>
 	public class PollService(string connectionString)
 	{
-		private string _connectionString = connectionString;
-
+		private readonly string _connectionString = connectionString;
+		/// <summary>
+		/// Creates a new poll.
+		/// </summary>
+		/// <param name="pollDto">The poll data transfer object containing poll details.</param>
+		/// <returns>The created <see cref="Poll"/>.</returns>
 		public Poll Create(PollDto pollDto)
 		{
 			var poll = new Poll
@@ -36,7 +43,10 @@ namespace Oscars.Backend.Service
 
 			return poll;
 		}
-
+		/// <summary>
+		/// Gets all polls.
+		/// </summary>
+		/// <returns>A list of <see cref="PollDto"/>.</returns>
 		public List<PollDto> GetAll()
 		{
 			List<PollDto> pollsDto = [];
@@ -62,7 +72,11 @@ namespace Oscars.Backend.Service
 
 			return pollsDto;
 		}
-
+		/// <summary>
+		/// Gets a poll by its ID.
+		/// </summary>
+		/// <param name="pollId">The poll ID.</param>
+		/// <returns>A <see cref="PollDto"/> if found; otherwise, null.</returns>
 		public PollDto? GetById(int pollId)
 		{
 			PollDto? pollDto = null;
@@ -96,7 +110,11 @@ namespace Oscars.Backend.Service
 
 			return pollDto;
 		}
-
+		/// <summary>
+		/// Updates an existing poll.
+		/// </summary>
+		/// <param name="pollDto">The poll data transfer object containing updated poll details.</param>
+		/// <returns>The updated <see cref="Poll"/>.</returns>
 		public Poll Update(PollDto pollDto)
 		{
 			var poll = new Poll
@@ -121,7 +139,10 @@ namespace Oscars.Backend.Service
 
 			return poll;
 		}
-
+		/// <summary>
+		/// Deletes a poll by its ID.
+		/// </summary>
+		/// <param name="id">The poll ID.</param>
 		public void Delete(int id)
 		{
 			using var connection = new NpgsqlConnection(_connectionString);

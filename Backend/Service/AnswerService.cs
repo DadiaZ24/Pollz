@@ -1,18 +1,21 @@
-﻿using System;
-using Npgsql;
+﻿using Npgsql;
 using Oscars.Backend.Dtos;
 using Oscars.Backend.Model;
 
 namespace Oscars.Backend.Service
 {
-    public class AnswerService
+    /// <summary>
+    /// Service for handling answer-related operations.
+    /// </summary>
+    public class AnswerService(string connectionString)
     {
-        private string _connectionString;
-        public AnswerService(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
+        private readonly string _connectionString = connectionString;
 
+        /// <summary>
+        /// Creates a new answer.
+        /// </summary>
+        /// <param name="answersDto">The answer data transfer object containing answer details.</param>
+        /// <returns>The created <see cref="Answer"/>.</returns>
         public Answer Create(AnswerDto answersDto)
         {
             var answer = new Answer
@@ -38,7 +41,10 @@ namespace Oscars.Backend.Service
 
             return answer;
         }
-
+        /// <summary>
+        /// Gets all answers.
+        /// </summary>
+        /// <returns>A list of <see cref="AnswerDto"/>.</returns>
         public List<AnswerDto> GetAll()
         {
             List<AnswerDto> answersDto = [];
@@ -61,7 +67,11 @@ namespace Oscars.Backend.Service
 
             return answersDto;
         }
-
+        /// <summary>
+        /// Gets answers by question ID.
+        /// </summary>
+        /// <param name="questionId">The question ID.</param>
+        /// <returns>A list of <see cref="AnswerDto"/>.</returns>
         public List<AnswerDto> GetByQuestionId(int questionId)
         {
             List<AnswerDto> answersDto = [];
@@ -85,7 +95,11 @@ namespace Oscars.Backend.Service
 
             return answersDto;
         }
-
+        /// <summary>
+        /// Gets an answer by its ID.
+        /// </summary>
+        /// <param name="answerId">The answer ID.</param>
+        /// <returns>An <see cref="AnswerDto"/> if found; otherwise, null.</returns>
         public AnswerDto? GetById(int answerId)
         {
             AnswerDto? answerDto = null;
@@ -108,7 +122,11 @@ namespace Oscars.Backend.Service
 
             return answerDto;
         }
-
+        /// <summary>
+        /// Updates an existing answer.
+        /// </summary>
+        /// <param name="answerDto">The answer data transfer object containing updated answer details.</param>
+        /// <returns>The updated <see cref="Answer"/>.</returns>
         public Answer Update(AnswerDto answerDto)
         {
             var answer = new Answer
@@ -128,7 +146,10 @@ namespace Oscars.Backend.Service
 
             return answer;
         }
-
+        /// <summary>
+        /// Deletes an answer by its ID.
+        /// </summary>
+        /// <param name="id">The answer ID.</param>
         public void Delete(int id)
         {
             using var connection = new NpgsqlConnection(_connectionString);

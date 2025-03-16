@@ -1,18 +1,20 @@
-﻿using System;
-using Npgsql;
+﻿using Npgsql;
 using Oscars.Backend.Dtos;
 using Oscars.Backend.Model;
 
 namespace Oscars.Backend.Service
 {
-    public class QuestionService
+    /// <summary>
+    /// Service for handling question-related operations.
+    /// </summary>
+    public class QuestionService(string connectionString)
     {
-        private string _connectionString;
-        public QuestionService(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
-
+        private readonly string _connectionString = connectionString;
+        /// <summary>
+        /// Creates a new question.
+        /// </summary>
+        /// <param name="questionDto">The question data transfer object containing question details.</param>
+        /// <returns>The created <see cref="Question"/>.</returns>
         public Question Create(QuestionDto questionDto)
         {
             var question = new Question
@@ -41,7 +43,10 @@ namespace Oscars.Backend.Service
 
             return question;
         }
-
+        /// <summary>
+        /// Gets all questions.
+        /// </summary>
+        /// <returns>A list of <see cref="QuestionDto"/>.</returns>
         public List<QuestionDto> GetAll()
         {
             List<QuestionDto> questionsDto = [];
@@ -65,7 +70,11 @@ namespace Oscars.Backend.Service
 
             return questionsDto;
         }
-
+        /// <summary>
+        /// Gets questions by poll ID.
+        /// </summary>
+        /// <param name="pollId">The poll ID.</param>
+        /// <returns>A list of <see cref="QuestionDto"/>.</returns>
         public List<QuestionDto> GetByPollId(int pollId)
         {
             List<QuestionDto> questionsDto = [];
@@ -90,7 +99,11 @@ namespace Oscars.Backend.Service
 
             return questionsDto;
         }
-
+        /// <summary>
+        /// Gets a question by its ID.
+        /// </summary>
+        /// <param name="questionId">The question ID.</param>
+        /// <returns>A <see cref="QuestionDto"/> if found; otherwise, null.</returns>
         public QuestionDto? GetById(int questionId)
         {
             QuestionDto? questionDto = null;
@@ -114,7 +127,11 @@ namespace Oscars.Backend.Service
 
             return questionDto;
         }
-
+        /// <summary>
+        /// Updates an existing question.
+        /// </summary>
+        /// <param name="questionDto">The question data transfer object containing updated question details.</param>
+        /// <returns>The updated <see cref="Question"/>.</returns>
         public Question Update(QuestionDto questionDto)
         {
             var question = new Question
@@ -137,7 +154,10 @@ namespace Oscars.Backend.Service
 
             return question;
         }
-
+        /// <summary>
+        /// Deletes a question by its ID.
+        /// </summary>
+        /// <param name="id">The question ID.</param>
         public void Delete(int id)
         {
             using var connection = new NpgsqlConnection(_connectionString);

@@ -1,16 +1,9 @@
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Npgsql;
-using Oscars.Backend.Debug;
 using Oscars.Backend.Service;
 using Oscars.Data;
-using Oscars.Backend.Configurations;
+using Oscars.Backend.Utils;
 using Microsoft.Extensions.Options;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -188,8 +181,6 @@ app.Use(async (context, next) =>
 
     await next();
 });
-
-app.UseMiddleware<ErrorHandle>();
 
 app.MapGet("/api/auth/test", () => "Backend is reachable.");
 

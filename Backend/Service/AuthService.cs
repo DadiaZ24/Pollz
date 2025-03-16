@@ -5,29 +5,42 @@ using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Npgsql;
-using Oscars.Backend.Configurations;
+using Oscars.Backend.Utils;
 using Oscars.Backend.Dtos;
 using static Oscars.Backend.Service.AuthService;
 
 namespace Oscars.Backend.Service
 {
+	/// <summary>
+	/// Interface for authentication service.
+	/// </summary>
 	public interface IAuthService
 	{
+		/// <summary>
+		/// Registers a new user.
+		/// </summary>
+		/// <param name="userDto">The user data transfer object containing registration details.</param>
+		/// <returns>An <see cref="AuthResult"/> indicating the result of the registration.</returns>
 		Task<AuthResult> RegisterAsync(UserDto userDto);
+		/// <summary>
+		/// Logs in a user.
+		/// </summary>
+		/// <param name="loginDto">The login data transfer object containing login details.</param>
+		/// <returns>An <see cref="AuthResult"/> indicating the result of the login attempt.</returns>
 		Task<AuthResult> LoginAsync(LoginDto loginDto);
 	}
-
-	public class AuthService : IAuthService
+	/// <summary>
+	/// Service for handling authentication-related operations.
+	/// </summary>
+	public class AuthService(string connectionString, IOptions<JwtSettings> jwtSettings) : IAuthService
 	{
-		private readonly string _connectionString;
-		private readonly JwtSettings _jwtSettings;
-
-		public AuthService(string connectionString, IOptions<JwtSettings> jwtSettings)
-		{
-			_connectionString = connectionString;
-			_jwtSettings = jwtSettings.Value;
-		}
-
+		private readonly string _connectionString = connectionString;
+		private readonly JwtSettings _jwtSettings = jwtSettings.Value;
+		/// <summary>
+		/// Registers a new user.
+		/// </summary>
+		/// <param name="userDto">The user data transfer object containing registration details.</param>
+		/// <returns>An <see cref="AuthResult"/> indicating the result of the registration.</returns>
 		public async Task<AuthResult> RegisterAsync(UserDto userDto)
 		{
 			var hashedPassword = HashPassword(userDto.Password);
@@ -45,7 +58,11 @@ namespace Oscars.Backend.Service
 
 			return new AuthResult { Success = true, Message = "User registered successfull" };
 		}
-
+		/// <summary>
+		/// Logs in a user.
+		/// </summary>
+		/// <param name="loginDto">The login data transfer object containing login details.</param>
+		/// <returns>An <see cref="AuthResult"/> indicating the result of the login attempt.</returns>
 		public async Task<AuthResult> LoginAsync(LoginDto loginDto)
 		{
 			using var connection = new NpgsqlConnection(_connectionString);
@@ -74,21 +91,33 @@ namespace Oscars.Backend.Service
 				return new AuthResult { Success = false, Message = "Invalid password" };
 			}
 		}
-
-		private string HashPassword(string password)
+		/// <summary>
+		/// Hashes the password using SHA256.
+		/// </summary>
+		/// <param name="password">The password to hash.</param>
+		/// <returns>The hashed password.</returns>
+		private static string HashPassword(string password)
 		{
-			using var sha256 = SHA256.Create();
-			var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+			var hashedBytes = SHA256.HashData(Encoding.UTF8.GetBytes(password));
 			return Convert.ToBase64String(hashedBytes);
 		}
-
-		private bool VerifyPassword(string password, string storedPasswordHash)
+		/// <summary>
+		/// Verifies the password against the stored password hash.
+		/// </summary>
+		/// <param name="password">The password to verify.</param>
+		/// <param name="storedPasswordHash">The stored password hash.</param>
+		/// <returns>True if the password matches the stored hash; otherwise, false.</returns>
+		private static bool VerifyPassword(string password, string storedPasswordHash)
 		{
 			var hashedPassword = HashPassword(password);
 			return hashedPassword == storedPasswordHash;
 		}
-
-
+		/// <summary>
+		/// Generates a JWT token for the authenticated user.
+		/// </summary>
+		/// <param name="username">The username of the authenticated user.</param>
+		/// <param name="userId">The user ID of the authenticated user.</param>
+		/// <returns>The generated JWT token.</returns>
 		private string GenerateJwtToken(string username, int userId)
 		{
 			var expiryMinutes = _jwtSettings.ExpiryMinutes;
@@ -110,7 +139,9 @@ namespace Oscars.Backend.Service
 			var token = tokenHandler.CreateToken(tokenDescriptor);
 			return tokenHandler.WriteToken(token);
 		}
-
+		/// <summary>
+		/// Represents the result of an authentication operation.
+		/// </summary>
 		public class AuthResult
 		{
 			public bool Success { get; set; }

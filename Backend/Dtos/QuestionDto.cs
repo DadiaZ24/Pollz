@@ -1,6 +1,8 @@
-﻿using Oscars.Backend.Model;
-
-namespace Oscars.Backend.Dtos
+﻿namespace Oscars.Backend.Dtos
+/// <summary>
+/// Represents a Data Transfer Object (DTO) for a question in a poll.
+/// This class is used to transfer question data between different layers of the application.
+/// </summary>
 {
     public class QuestionDto
     {

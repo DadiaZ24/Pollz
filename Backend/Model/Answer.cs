@@ -1,5 +1,8 @@
 ﻿namespace Oscars.Backend.Model
 {
+    /// <summary>
+    /// Represents an answer to a question in the PollZ platform.
+    /// </summary>
     public class Answer
     {
         public required int Id { get; set; }

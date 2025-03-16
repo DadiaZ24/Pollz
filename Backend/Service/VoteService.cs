@@ -1,12 +1,19 @@
 ﻿using Npgsql;
 using Oscars.Backend.Dtos;
-using Oscars.Backend.Model;
 
 namespace Oscars.Backend.Service
 {
+    /// <summary>
+    /// Service for handling vote-related operations.
+    /// </summary>
     public class VoteService(string connectionString)
     {
         private readonly string _connectionString = connectionString;
+        /// <summary>
+        /// Creates a new vote.
+        /// </summary>
+        /// <param name="voteRequestDto">The vote request data transfer object containing vote details.</param>
+        /// <returns>A boolean indicating whether the vote was successfully created.</returns>
         public async Task<bool> Create(VoteRequestDto voteRequestDto)
         {
             using var connection = new NpgsqlConnection(_connectionString);
@@ -38,7 +45,11 @@ namespace Oscars.Backend.Service
                 return false;
             }
         }
-
+        /// <summary>
+        /// Updates an existing vote.
+        /// </summary>
+        /// <param name="voteRequestDto">The vote request data transfer object containing updated vote details.</param>
+        /// <returns>A boolean indicating whether the vote was successfully updated.</returns>
         public async Task<bool> Update(VoteRequestDto voteRequestDto)
         {
             using var connection = new NpgsqlConnection(_connectionString);
@@ -53,7 +64,11 @@ namespace Oscars.Backend.Service
             var result = await cmd.ExecuteNonQueryAsync();
             return result > 0;
         }
-
+        /// <summary>
+        /// Checks if a voter has already voted.
+        /// </summary>
+        /// <param name="voteRequestDto">The vote request data transfer object containing vote details.</param>
+        /// <returns>A boolean indicating whether the voter has already voted.</returns>
         public async Task<bool> HasVotedAsync(VoteRequestDto voteRequestDto)
         {
             using var connection = new NpgsqlConnection(_connectionString);
@@ -66,7 +81,11 @@ namespace Oscars.Backend.Service
             var result = await cmd.ExecuteScalarAsync();
             return result != null;
         }
-
+        /// <summary>
+        /// Gets the results of a vote by question ID.
+        /// </summary>
+        /// <param name="questionId">The question ID.</param>
+        /// <returns>A list of <see cref="VoteResultDto"/> containing the vote results.</returns>
         public async Task<List<VoteResultDto>> GetResultsAsync(int questionId)
         {
             var results = new List<VoteResultDto>();

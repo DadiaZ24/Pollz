@@ -1,4 +1,8 @@
 namespace Oscars.Backend.Dtos
+/// <summary>
+/// Data Transfer Object (DTO) for representing a poll.
+/// This class is used to transfer poll data between different layers of the application.
+/// </summary>
 {
 	public class PollDto
 	{

@@ -1,4 +1,8 @@
 namespace Oscars.Backend.Dtos
+/// <summary>
+/// Represents a Data Transfer Object (DTO) for a user.
+/// This class is used to transfer user data between different layers of the application.
+/// </summary>
 {
 	public class UserDto
 	{

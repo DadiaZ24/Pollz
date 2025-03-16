@@ -5,21 +5,28 @@ using Oscars.Backend.Service;
 
 namespace Oscars.Backend.Router
 {
+	/// <summary>
+	/// Router for handling authentication-related requests.
+	/// </summary>
 	[EnableCors("AllowFrontend")]
 	[ApiController]
 	[Route("api/auth")]
 	public class LoginRouter : ControllerBase
 	{
 		private readonly IAuthService _authService;
+		/// <summary>
+		/// Initializes a new instance of the <see cref="LoginRouter"/> class.
+		/// </summary>
+		/// <param name="authService">The authentication service.</param>
 		public LoginRouter(IAuthService authService)
 		{
 			_authService = authService;
 		}
-		[HttpGet("test")]
-		public string Test()
-		{
-			return "Backend is reachable.";
-		}
+		/// <summary>
+		/// Registers a new user.
+		/// </summary>
+		/// <param name="userDto">The user data transfer object containing registration details.</param>
+		/// <returns>An <see cref="IActionResult"/> indicating the result of the registration.</returns>
 		[HttpPost("register")]
 		public async Task<IActionResult> Register([FromBody] UserDto userDto)
 		{
@@ -33,7 +40,11 @@ namespace Oscars.Backend.Router
 				return BadRequest(res.Message);
 			}
 		}
-
+		/// <summary>
+		/// Logs in a user.
+		/// </summary>
+		/// <param name="loginDto">The login data transfer object containing login details.</param>
+		/// <returns>An <see cref="IActionResult"/> indicating the result of the login attempt.</returns>
 		[HttpPost("login")]
 		public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
 		{

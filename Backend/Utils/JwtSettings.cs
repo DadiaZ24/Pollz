@@ -1,5 +1,8 @@
-namespace Oscars.Backend.Configurations
+namespace Oscars.Backend.Utils
 {
+	/// <summary>
+	/// Configuration settings for JWT (JSON Web Token).
+	/// </summary>
 	public class JwtSettings
 	{
 		public string SecretKey { get; set; } = string.Empty;

@@ -1,10 +1,12 @@
-using System.Collections.Generic;
 using Npgsql;
 using Oscars.Backend.Dtos;
 using Oscars.Models;
 
 namespace Oscars.Backend.Service
 {
+    /// <summary>
+    /// Interface for user service.
+    /// </summary>
     public interface IUserService
     {
         IEnumerable<User> GetAllUsers();
@@ -13,15 +15,16 @@ namespace Oscars.Backend.Service
         void UpdateUser(int id, UserDto userDto);
         void DeleteUser(int id);
     }
-
-    public class UserService : IUserService
+    /// <summary>
+    /// Service for handling user-related operations.
+    /// </summary>
+    public class UserService(string connectionString) : IUserService
     {
-        private readonly string _connectionString;
-        public UserService(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
-
+        private readonly string _connectionString = connectionString;
+        /// <summary>
+        /// Gets all users.
+        /// </summary>
+        /// <returns>An enumerable collection of <see cref="User"/>.</returns>
         public IEnumerable<User> GetAllUsers()
         {
             var users = new List<User>();
@@ -44,6 +47,11 @@ namespace Oscars.Backend.Service
             }
             return users;
         }
+        /// <summary>
+        /// Gets a user by their ID.
+        /// </summary>
+        /// <param name="id">The user ID.</param>
+        /// <returns>A <see cref="User"/> if found; otherwise, throws <see cref="KeyNotFoundException"/>.</returns>
         public User GetUserById(int id)
         {
             using var connection = new NpgsqlConnection(_connectionString);
@@ -65,7 +73,10 @@ namespace Oscars.Backend.Service
             }
             throw new KeyNotFoundException("User not found");
         }
-
+        /// <summary>
+        /// Creates a new user.
+        /// </summary>
+        /// <param name="userDto">The user data transfer object containing user details.</param>
         public void CreateUser(UserDto userDto)
         {
             using var connection = new NpgsqlConnection(_connectionString);
@@ -78,7 +89,11 @@ namespace Oscars.Backend.Service
             cmd.Parameters.AddWithValue("@4", userDto.Role.ToString());
             cmd.ExecuteNonQuery();
         }
-
+        /// <summary>
+        /// Updates an existing user.
+        /// </summary>
+        /// <param name="id">The user ID.</param>
+        /// <param name="userDto">The user data transfer object containing updated user details.</param>
         public void UpdateUser(int id, UserDto userDto)
         {
             using var connection = new NpgsqlConnection(_connectionString);
@@ -92,7 +107,10 @@ namespace Oscars.Backend.Service
             cmd.Parameters.AddWithValue("@5", id);
             cmd.ExecuteNonQuery();
         }
-
+        /// <summary>
+        /// Deletes a user by their ID.
+        /// </summary>
+        /// <param name="id">The user ID.</param>
         public void DeleteUser(int id)
         {
             using var connection = new NpgsqlConnection(_connectionString);

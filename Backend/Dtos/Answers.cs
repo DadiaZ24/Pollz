@@ -1,4 +1,8 @@
 ﻿namespace Oscars.Backend.Dtos
+/// <summary>
+/// Represents a Data Transfer Object (DTO) for an answer.
+/// This class is used to transfer answer data between processes.
+/// </summary>
 {
     public class AnswerDto
     {
