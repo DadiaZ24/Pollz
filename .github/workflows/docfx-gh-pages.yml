@@ -30,7 +30,7 @@ jobs:
     - run: dotnet tool update -g docfx
 
     - name: Build Documentation
-      run: docfx build ./docfx.json
+      run: docfx build https://github.com/DadiaZ24/Pollz/blob/gh-pages/docfx.json/docfx.json
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
