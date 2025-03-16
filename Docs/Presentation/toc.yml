@@ -1,0 +1,14 @@
+- name: Introduction
+  href: presentation.md
+- name: Onion Architecture
+  href: architecture.md
+- name: Database Schema
+  href: dbschema.md
+- name: Frameworks & Technologies
+  href: frameworks-technologies.md
+- name: Key Features
+  href: key-features.md
+- name: Project Structure
+  href: project-structure.md
+- name: Conclusion
+  href: conclusion.md
