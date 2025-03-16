@@ -1,12 +1,12 @@
-# PollZ Platform
+# PollZ Platform 🎉
 
 Welcome to the **PollZ Platform**! This project is designed to manage and streamline the **Oscars event**.
 
-## Documentation
+## Documentation 📚
 
 To access the project documentation, [click here](https://dadiaz24.github.io/Pollz/).
 
-## Project Setup
+## Project Setup 🚀
 
 Follow these steps to set up and run the project locally:
 
@@ -22,7 +22,7 @@ Follow these steps to set up and run the project locally:
    npm install
    npm run dev```
 
-## Dependencies
+## Dependencies 📦
 
-1. Dotnet software (for the backend)
-2. Node Package Manager (npm) (for the frontend)
+1. Dotnet software (for the backend) 🖥️
+2. Node Package Manager (npm) (for the frontend) 📦
