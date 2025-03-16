@@ -2,6 +2,8 @@
 
 Welcome to the **PollZ Platform**! This project is designed to manage and streamline the **Oscars event**.
 
+![PollZ Preview](https://i.imgur.com/bGkysdC.png)
+
 ## Documentation 📚
 
 To access the project documentation, [click here](https://dadiaz24.github.io/Pollz/).
