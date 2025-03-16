@@ -1,0 +1,777 @@
+{
+  "source_base_path": "C:/Users/diogo/Desktop/Programação/2- Trabalhos Pessoais/DadiaZ/PollZ/platform",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Presentation/architecture.md",
+      "output": {
+        ".html": {
+          "relative_path": "Presentation/architecture.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Presentation/conclusion.md",
+      "output": {
+        ".html": {
+          "relative_path": "Presentation/conclusion.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Presentation/dbschema.md",
+      "output": {
+        ".html": {
+          "relative_path": "Presentation/dbschema.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Presentation/frameworks-technologies.md",
+      "output": {
+        ".html": {
+          "relative_path": "Presentation/frameworks-technologies.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Presentation/key-features.md",
+      "output": {
+        ".html": {
+          "relative_path": "Presentation/key-features.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Presentation/presentation.md",
+      "output": {
+        ".html": {
+          "relative_path": "Presentation/presentation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Presentation/project-structure.md",
+      "output": {
+        ".html": {
+          "relative_path": "Presentation/project-structure.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "Presentation/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Presentation/toc.html"
+        },
+        ".json": {
+          "relative_path": "Presentation/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Dtos.AnswerDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Dtos.AnswerDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Dtos.AnswerDto",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Dtos.LoginDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Dtos.LoginDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Dtos.LoginDto",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Dtos.LoginDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object (DTO) for user login.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Dtos.PollDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Dtos.PollDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Dtos.PollDto",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Dtos.QuestionDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Dtos.QuestionDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Dtos.QuestionDto",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Dtos.UniqueCodeDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Dtos.UniqueCodeDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Dtos.UniqueCodeDto",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Dtos.UniqueCodeDto.yml\" sourcestartlinenumber=\"1\">Represents a unique code assigned to a voter.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Dtos.UserDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Dtos.UserDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Dtos.UserDto",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Dtos.VoteRequestDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Dtos.VoteRequestDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Dtos.VoteRequestDto",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Dtos.VoteRequestDto.yml\" sourcestartlinenumber=\"1\">Represents a request to cast a vote in a poll.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Dtos.VoteResultDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Dtos.VoteResultDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Dtos.VoteResultDto",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Dtos.VoteResultDto.yml\" sourcestartlinenumber=\"1\">Represents a request to cast a vote result in a poll.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Dtos.VoterDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Dtos.VoterDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Dtos.VoterDto",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Dtos.VoterWithCodeDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Dtos.VoterWithCodeDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Dtos.VoterWithCodeDto",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Dtos.VoterWithCodeDto.yml\" sourcestartlinenumber=\"1\">Represents a voter with an associated code in the polling system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Dtos.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Dtos.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Dtos",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Model.Answer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Model.Answer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Model.Answer",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Model.Answer.yml\" sourcestartlinenumber=\"1\">Represents an answer to a question in the PollZ platform.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Model.Poll.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Model.Poll.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Model.Poll",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Model.Poll.yml\" sourcestartlinenumber=\"1\">Represents a poll created by a user.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Model.Question.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Model.Question.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Model.Question",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Model.Question.yml\" sourcestartlinenumber=\"1\">Represents a question in a poll.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Model.UniqueCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Model.UniqueCode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Model.UniqueCode",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Model.UniqueCode.yml\" sourcestartlinenumber=\"1\">Represents a unique code associated with a voter.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Model.Vote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Model.Vote.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Model.Vote",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Model.Vote.yml\" sourcestartlinenumber=\"1\">Represents a vote in the polling system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Model.Voter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Model.Voter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Model.Voter",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Model.Voter.yml\" sourcestartlinenumber=\"1\">Represents a voter in a poll.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Model.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Model.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Model",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Router.AnswerRouter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Router.AnswerRouter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Router.AnswerRouter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Router.LoginRouter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Router.LoginRouter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Router.LoginRouter",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Router.LoginRouter.yml\" sourcestartlinenumber=\"1\">Router for handling authentication-related requests.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Router.PollRouter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Router.PollRouter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Router.PollRouter",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Router.PollRouter.yml\" sourcestartlinenumber=\"1\">Router for handling poll-related requests.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Router.QuestionRouter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Router.QuestionRouter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Router.QuestionRouter",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Router.QuestionRouter.yml\" sourcestartlinenumber=\"1\">Router for handling question-related requests.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Router.UserRouter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Router.UserRouter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Router.UserRouter",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Router.UserRouter.yml\" sourcestartlinenumber=\"1\">Router for handling user-related requests.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Router.VoteRouter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Router.VoteRouter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Router.VoteRouter",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Router.VoteRouter.yml\" sourcestartlinenumber=\"1\">Router for handling vote-related requests.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Router.VoterRouter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Router.VoterRouter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Router.VoterRouter",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Router.VoterRouter.yml\" sourcestartlinenumber=\"1\">Router for handling voter-related requests.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Router.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Router.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Router",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Service.AnswerService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Service.AnswerService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Service.AnswerService",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Service.AnswerService.yml\" sourcestartlinenumber=\"1\">Service for handling answer-related operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Service.AuthService.AuthResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Service.AuthService.AuthResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Service.AuthService.AuthResult",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Service.AuthService.AuthResult.yml\" sourcestartlinenumber=\"1\">Represents the result of an authentication operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Service.AuthService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Service.AuthService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Service.AuthService",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Service.AuthService.yml\" sourcestartlinenumber=\"1\">Service for handling authentication-related operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Service.IAuthService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Service.IAuthService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Service.IAuthService",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Service.IAuthService.yml\" sourcestartlinenumber=\"1\">Interface for authentication service.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Service.IUserService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Service.IUserService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Service.IUserService",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Service.IUserService.yml\" sourcestartlinenumber=\"1\">Interface for user service.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Service.PollService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Service.PollService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Service.PollService",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Service.PollService.yml\" sourcestartlinenumber=\"1\">Service for handling poll-related operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Service.QuestionService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Service.QuestionService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Service.QuestionService",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Service.QuestionService.yml\" sourcestartlinenumber=\"1\">Service for handling question-related operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Service.UserService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Service.UserService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Service.UserService",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Service.UserService.yml\" sourcestartlinenumber=\"1\">Service for handling user-related operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Service.VoteService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Service.VoteService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Service.VoteService",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Service.VoteService.yml\" sourcestartlinenumber=\"1\">Service for handling vote-related operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Service.VoterService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Service.VoterService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Service.VoterService",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Service.VoterService.yml\" sourcestartlinenumber=\"1\">Service for handling voter-related operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Service.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Service.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Service",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Utils.JwtSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Utils.JwtSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Utils.JwtSettings",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Utils.JwtSettings.yml\" sourcestartlinenumber=\"1\">Configuration settings for JWT (JSON Web Token).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Utils.Parser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Utils.Parser.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Utils.Parser",
+      "Summary": "<p sourcefile=\"doc/Oscars.Backend.Utils.Parser.yml\" sourcestartlinenumber=\"1\">Configuration settings for JWT (JSON Web Token).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Backend.Utils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Backend.Utils.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Backend.Utils",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Data.DBConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Data.DBConnection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Data.DBConnection",
+      "Summary": "<p sourcefile=\"doc/Oscars.Data.DBConnection.yml\" sourcestartlinenumber=\"1\">Class for managing database connections and running migrations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Data.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Data",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Models.User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Models.User.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Models.User",
+      "Summary": "<p sourcefile=\"doc/Oscars.Models.User.yml\" sourcestartlinenumber=\"1\">Represents a user in the system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "doc/Oscars.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/Oscars.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Oscars.Models",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "doc/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/toc.html"
+        },
+        ".json": {
+          "relative_path": "doc/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "preview/preview.md",
+      "output": {
+        ".html": {
+          "relative_path": "preview/preview.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "preview/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "preview/toc.html"
+        },
+        ".json": {
+          "relative_path": "preview/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,735 @@
+### YamlMime:ManagedReference
+items:
+- uid: Oscars.Backend.Service.VoteService
+  commentId: T:Oscars.Backend.Service.VoteService
+  id: VoteService
+  parent: Oscars.Backend.Service
+  children:
+  - Oscars.Backend.Service.VoteService.#ctor(System.String)
+  - Oscars.Backend.Service.VoteService.Create(Oscars.Backend.Dtos.VoteRequestDto)
+  - Oscars.Backend.Service.VoteService.GetResultsAsync(System.Int32)
+  - Oscars.Backend.Service.VoteService.HasVotedAsync(Oscars.Backend.Dtos.VoteRequestDto)
+  - Oscars.Backend.Service.VoteService.Update(Oscars.Backend.Dtos.VoteRequestDto)
+  langs:
+  - csharp
+  - vb
+  name: VoteService
+  nameWithType: VoteService
+  fullName: Oscars.Backend.Service.VoteService
+  type: Class
+  source:
+    remote:
+      path: Backend/Service/VoteService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: VoteService
+    path: ../Backend/Service/VoteService.cs
+    startLine: 8
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  summary: Service for handling vote-related operations.
+  example: []
+  syntax:
+    content: public class VoteService
+    content.vb: Public Class VoteService
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Oscars.Backend.Service.VoteService.#ctor(System.String)
+  commentId: M:Oscars.Backend.Service.VoteService.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Oscars.Backend.Service.VoteService
+  langs:
+  - csharp
+  - vb
+  name: VoteService(string)
+  nameWithType: VoteService.VoteService(string)
+  fullName: Oscars.Backend.Service.VoteService.VoteService(string)
+  type: Constructor
+  source:
+    remote:
+      path: Backend/Service/VoteService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: .ctor
+    path: ../Backend/Service/VoteService.cs
+    startLine: 8
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  summary: Service for handling vote-related operations.
+  example: []
+  syntax:
+    content: public VoteService(string connectionString)
+    parameters:
+    - id: connectionString
+      type: System.String
+    content.vb: Public Sub New(connectionString As String)
+  overload: Oscars.Backend.Service.VoteService.#ctor*
+  nameWithType.vb: VoteService.New(String)
+  fullName.vb: Oscars.Backend.Service.VoteService.New(String)
+  name.vb: New(String)
+- uid: Oscars.Backend.Service.VoteService.Create(Oscars.Backend.Dtos.VoteRequestDto)
+  commentId: M:Oscars.Backend.Service.VoteService.Create(Oscars.Backend.Dtos.VoteRequestDto)
+  id: Create(Oscars.Backend.Dtos.VoteRequestDto)
+  parent: Oscars.Backend.Service.VoteService
+  langs:
+  - csharp
+  - vb
+  name: Create(VoteRequestDto)
+  nameWithType: VoteService.Create(VoteRequestDto)
+  fullName: Oscars.Backend.Service.VoteService.Create(Oscars.Backend.Dtos.VoteRequestDto)
+  type: Method
+  source:
+    remote:
+      path: Backend/Service/VoteService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: Create
+    path: ../Backend/Service/VoteService.cs
+    startLine: 16
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  summary: Creates a new vote.
+  example: []
+  syntax:
+    content: public Task<bool> Create(VoteRequestDto voteRequestDto)
+    parameters:
+    - id: voteRequestDto
+      type: Oscars.Backend.Dtos.VoteRequestDto
+      description: The vote request data transfer object containing vote details.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: A boolean indicating whether the vote was successfully created.
+    content.vb: Public Function Create(voteRequestDto As VoteRequestDto) As Task(Of Boolean)
+  overload: Oscars.Backend.Service.VoteService.Create*
+- uid: Oscars.Backend.Service.VoteService.Update(Oscars.Backend.Dtos.VoteRequestDto)
+  commentId: M:Oscars.Backend.Service.VoteService.Update(Oscars.Backend.Dtos.VoteRequestDto)
+  id: Update(Oscars.Backend.Dtos.VoteRequestDto)
+  parent: Oscars.Backend.Service.VoteService
+  langs:
+  - csharp
+  - vb
+  name: Update(VoteRequestDto)
+  nameWithType: VoteService.Update(VoteRequestDto)
+  fullName: Oscars.Backend.Service.VoteService.Update(Oscars.Backend.Dtos.VoteRequestDto)
+  type: Method
+  source:
+    remote:
+      path: Backend/Service/VoteService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: Update
+    path: ../Backend/Service/VoteService.cs
+    startLine: 52
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  summary: Updates an existing vote.
+  example: []
+  syntax:
+    content: public Task<bool> Update(VoteRequestDto voteRequestDto)
+    parameters:
+    - id: voteRequestDto
+      type: Oscars.Backend.Dtos.VoteRequestDto
+      description: The vote request data transfer object containing updated vote details.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: A boolean indicating whether the vote was successfully updated.
+    content.vb: Public Function Update(voteRequestDto As VoteRequestDto) As Task(Of Boolean)
+  overload: Oscars.Backend.Service.VoteService.Update*
+- uid: Oscars.Backend.Service.VoteService.HasVotedAsync(Oscars.Backend.Dtos.VoteRequestDto)
+  commentId: M:Oscars.Backend.Service.VoteService.HasVotedAsync(Oscars.Backend.Dtos.VoteRequestDto)
+  id: HasVotedAsync(Oscars.Backend.Dtos.VoteRequestDto)
+  parent: Oscars.Backend.Service.VoteService
+  langs:
+  - csharp
+  - vb
+  name: HasVotedAsync(VoteRequestDto)
+  nameWithType: VoteService.HasVotedAsync(VoteRequestDto)
+  fullName: Oscars.Backend.Service.VoteService.HasVotedAsync(Oscars.Backend.Dtos.VoteRequestDto)
+  type: Method
+  source:
+    remote:
+      path: Backend/Service/VoteService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: HasVotedAsync
+    path: ../Backend/Service/VoteService.cs
+    startLine: 71
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  summary: Checks if a voter has already voted.
+  example: []
+  syntax:
+    content: public Task<bool> HasVotedAsync(VoteRequestDto voteRequestDto)
+    parameters:
+    - id: voteRequestDto
+      type: Oscars.Backend.Dtos.VoteRequestDto
+      description: The vote request data transfer object containing vote details.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: A boolean indicating whether the voter has already voted.
+    content.vb: Public Function HasVotedAsync(voteRequestDto As VoteRequestDto) As Task(Of Boolean)
+  overload: Oscars.Backend.Service.VoteService.HasVotedAsync*
+- uid: Oscars.Backend.Service.VoteService.GetResultsAsync(System.Int32)
+  commentId: M:Oscars.Backend.Service.VoteService.GetResultsAsync(System.Int32)
+  id: GetResultsAsync(System.Int32)
+  parent: Oscars.Backend.Service.VoteService
+  langs:
+  - csharp
+  - vb
+  name: GetResultsAsync(int)
+  nameWithType: VoteService.GetResultsAsync(int)
+  fullName: Oscars.Backend.Service.VoteService.GetResultsAsync(int)
+  type: Method
+  source:
+    remote:
+      path: Backend/Service/VoteService.cs
+      branch: main
+      repo: git@github.com:DadiaZ24/oscars.git
+    id: GetResultsAsync
+    path: ../Backend/Service/VoteService.cs
+    startLine: 88
+  assemblies:
+  - Oscars
+  namespace: Oscars.Backend.Service
+  summary: Gets the results of a vote by question ID.
+  example: []
+  syntax:
+    content: public Task<List<VoteResultDto>> GetResultsAsync(int questionId)
+    parameters:
+    - id: questionId
+      type: System.Int32
+      description: The question ID.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{Oscars.Backend.Dtos.VoteResultDto}}
+      description: A list of <xref href="Oscars.Backend.Dtos.VoteResultDto" data-throw-if-not-resolved="false"></xref> containing the vote results.
+    content.vb: Public Function GetResultsAsync(questionId As Integer) As Task(Of List(Of VoteResultDto))
+  overload: Oscars.Backend.Service.VoteService.GetResultsAsync*
+  nameWithType.vb: VoteService.GetResultsAsync(Integer)
+  fullName.vb: Oscars.Backend.Service.VoteService.GetResultsAsync(Integer)
+  name.vb: GetResultsAsync(Integer)
+references:
+- uid: Oscars.Backend.Service
+  commentId: N:Oscars.Backend.Service
+  href: Oscars.html
+  name: Oscars.Backend.Service
+  nameWithType: Oscars.Backend.Service
+  fullName: Oscars.Backend.Service
+  spec.csharp:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Backend
+    name: Backend
+    href: Oscars.Backend.html
+  - name: .
+  - uid: Oscars.Backend.Service
+    name: Service
+    href: Oscars.Backend.Service.html
+  spec.vb:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Backend
+    name: Backend
+    href: Oscars.Backend.html
+  - name: .
+  - uid: Oscars.Backend.Service
+    name: Service
+    href: Oscars.Backend.Service.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Oscars.Backend.Service.VoteService.#ctor*
+  commentId: Overload:Oscars.Backend.Service.VoteService.#ctor
+  href: Oscars.Backend.Service.VoteService.html#Oscars_Backend_Service_VoteService__ctor_System_String_
+  name: VoteService
+  nameWithType: VoteService.VoteService
+  fullName: Oscars.Backend.Service.VoteService.VoteService
+  nameWithType.vb: VoteService.New
+  fullName.vb: Oscars.Backend.Service.VoteService.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Oscars.Backend.Service.VoteService.Create*
+  commentId: Overload:Oscars.Backend.Service.VoteService.Create
+  href: Oscars.Backend.Service.VoteService.html#Oscars_Backend_Service_VoteService_Create_Oscars_Backend_Dtos_VoteRequestDto_
+  name: Create
+  nameWithType: VoteService.Create
+  fullName: Oscars.Backend.Service.VoteService.Create
+- uid: Oscars.Backend.Dtos.VoteRequestDto
+  commentId: T:Oscars.Backend.Dtos.VoteRequestDto
+  parent: Oscars.Backend.Dtos
+  href: Oscars.Backend.Dtos.VoteRequestDto.html
+  name: VoteRequestDto
+  nameWithType: VoteRequestDto
+  fullName: Oscars.Backend.Dtos.VoteRequestDto
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Oscars.Backend.Dtos
+  commentId: N:Oscars.Backend.Dtos
+  href: Oscars.html
+  name: Oscars.Backend.Dtos
+  nameWithType: Oscars.Backend.Dtos
+  fullName: Oscars.Backend.Dtos
+  spec.csharp:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Backend
+    name: Backend
+    href: Oscars.Backend.html
+  - name: .
+  - uid: Oscars.Backend.Dtos
+    name: Dtos
+    href: Oscars.Backend.Dtos.html
+  spec.vb:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Backend
+    name: Backend
+    href: Oscars.Backend.html
+  - name: .
+  - uid: Oscars.Backend.Dtos
+    name: Dtos
+    href: Oscars.Backend.Dtos.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Oscars.Backend.Service.VoteService.Update*
+  commentId: Overload:Oscars.Backend.Service.VoteService.Update
+  href: Oscars.Backend.Service.VoteService.html#Oscars_Backend_Service_VoteService_Update_Oscars_Backend_Dtos_VoteRequestDto_
+  name: Update
+  nameWithType: VoteService.Update
+  fullName: Oscars.Backend.Service.VoteService.Update
+- uid: Oscars.Backend.Service.VoteService.HasVotedAsync*
+  commentId: Overload:Oscars.Backend.Service.VoteService.HasVotedAsync
+  href: Oscars.Backend.Service.VoteService.html#Oscars_Backend_Service_VoteService_HasVotedAsync_Oscars_Backend_Dtos_VoteRequestDto_
+  name: HasVotedAsync
+  nameWithType: VoteService.HasVotedAsync
+  fullName: Oscars.Backend.Service.VoteService.HasVotedAsync
+- uid: Oscars.Backend.Dtos.VoteResultDto
+  commentId: T:Oscars.Backend.Dtos.VoteResultDto
+  href: Oscars.Backend.Dtos.VoteResultDto.html
+  name: VoteResultDto
+  nameWithType: VoteResultDto
+  fullName: Oscars.Backend.Dtos.VoteResultDto
+- uid: Oscars.Backend.Service.VoteService.GetResultsAsync*
+  commentId: Overload:Oscars.Backend.Service.VoteService.GetResultsAsync
+  href: Oscars.Backend.Service.VoteService.html#Oscars_Backend_Service_VoteService_GetResultsAsync_System_Int32_
+  name: GetResultsAsync
+  nameWithType: VoteService.GetResultsAsync
+  fullName: Oscars.Backend.Service.VoteService.GetResultsAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{Oscars.Backend.Dtos.VoteResultDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{Oscars.Backend.Dtos.VoteResultDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<VoteResultDto>>
+  nameWithType: Task<List<VoteResultDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<Oscars.Backend.Dtos.VoteResultDto>>
+  nameWithType.vb: Task(Of List(Of VoteResultDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of Oscars.Backend.Dtos.VoteResultDto))
+  name.vb: Task(Of List(Of VoteResultDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Oscars.Backend.Dtos.VoteResultDto
+    name: VoteResultDto
+    href: Oscars.Backend.Dtos.VoteResultDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Oscars.Backend.Dtos.VoteResultDto
+    name: VoteResultDto
+    href: Oscars.Backend.Dtos.VoteResultDto.html
+  - name: )
+  - name: )

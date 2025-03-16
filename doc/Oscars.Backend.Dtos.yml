@@ -1,0 +1,124 @@
+### YamlMime:ManagedReference
+items:
+- uid: Oscars.Backend.Dtos
+  commentId: N:Oscars.Backend.Dtos
+  id: Oscars.Backend.Dtos
+  children:
+  - Oscars.Backend.Dtos.AnswerDto
+  - Oscars.Backend.Dtos.LoginDto
+  - Oscars.Backend.Dtos.PollDto
+  - Oscars.Backend.Dtos.QuestionDto
+  - Oscars.Backend.Dtos.UniqueCodeDto
+  - Oscars.Backend.Dtos.UserDto
+  - Oscars.Backend.Dtos.VoteRequestDto
+  - Oscars.Backend.Dtos.VoteResultDto
+  - Oscars.Backend.Dtos.VoterDto
+  - Oscars.Backend.Dtos.VoterWithCodeDto
+  langs:
+  - csharp
+  - vb
+  name: Oscars.Backend.Dtos
+  nameWithType: Oscars.Backend.Dtos
+  fullName: Oscars.Backend.Dtos
+  type: Namespace
+  assemblies:
+  - Oscars
+references:
+- uid: Oscars.Backend.Dtos.AnswerDto
+  commentId: T:Oscars.Backend.Dtos.AnswerDto
+  parent: Oscars.Backend.Dtos
+  href: Oscars.Backend.Dtos.AnswerDto.html
+  name: AnswerDto
+  nameWithType: AnswerDto
+  fullName: Oscars.Backend.Dtos.AnswerDto
+- uid: Oscars.Backend.Dtos.LoginDto
+  commentId: T:Oscars.Backend.Dtos.LoginDto
+  parent: Oscars.Backend.Dtos
+  href: Oscars.Backend.Dtos.LoginDto.html
+  name: LoginDto
+  nameWithType: LoginDto
+  fullName: Oscars.Backend.Dtos.LoginDto
+- uid: Oscars.Backend.Dtos.PollDto
+  commentId: T:Oscars.Backend.Dtos.PollDto
+  parent: Oscars.Backend.Dtos
+  href: Oscars.Backend.Dtos.PollDto.html
+  name: PollDto
+  nameWithType: PollDto
+  fullName: Oscars.Backend.Dtos.PollDto
+- uid: Oscars.Backend.Dtos.QuestionDto
+  commentId: T:Oscars.Backend.Dtos.QuestionDto
+  parent: Oscars.Backend.Dtos
+  href: Oscars.Backend.Dtos.QuestionDto.html
+  name: QuestionDto
+  nameWithType: QuestionDto
+  fullName: Oscars.Backend.Dtos.QuestionDto
+- uid: Oscars.Backend.Dtos.UserDto
+  commentId: T:Oscars.Backend.Dtos.UserDto
+  parent: Oscars.Backend.Dtos
+  href: Oscars.Backend.Dtos.UserDto.html
+  name: UserDto
+  nameWithType: UserDto
+  fullName: Oscars.Backend.Dtos.UserDto
+- uid: Oscars.Backend.Dtos.VoteRequestDto
+  commentId: T:Oscars.Backend.Dtos.VoteRequestDto
+  parent: Oscars.Backend.Dtos
+  href: Oscars.Backend.Dtos.VoteRequestDto.html
+  name: VoteRequestDto
+  nameWithType: VoteRequestDto
+  fullName: Oscars.Backend.Dtos.VoteRequestDto
+- uid: Oscars.Backend.Dtos.VoteResultDto
+  commentId: T:Oscars.Backend.Dtos.VoteResultDto
+  href: Oscars.Backend.Dtos.VoteResultDto.html
+  name: VoteResultDto
+  nameWithType: VoteResultDto
+  fullName: Oscars.Backend.Dtos.VoteResultDto
+- uid: Oscars.Backend.Dtos.VoterDto
+  commentId: T:Oscars.Backend.Dtos.VoterDto
+  parent: Oscars.Backend.Dtos
+  href: Oscars.Backend.Dtos.VoterDto.html
+  name: VoterDto
+  nameWithType: VoterDto
+  fullName: Oscars.Backend.Dtos.VoterDto
+- uid: Oscars.Backend.Dtos.UniqueCodeDto
+  commentId: T:Oscars.Backend.Dtos.UniqueCodeDto
+  href: Oscars.Backend.Dtos.UniqueCodeDto.html
+  name: UniqueCodeDto
+  nameWithType: UniqueCodeDto
+  fullName: Oscars.Backend.Dtos.UniqueCodeDto
+- uid: Oscars.Backend.Dtos.VoterWithCodeDto
+  commentId: T:Oscars.Backend.Dtos.VoterWithCodeDto
+  parent: Oscars.Backend.Dtos
+  href: Oscars.Backend.Dtos.VoterWithCodeDto.html
+  name: VoterWithCodeDto
+  nameWithType: VoterWithCodeDto
+  fullName: Oscars.Backend.Dtos.VoterWithCodeDto
+- uid: Oscars.Backend.Dtos
+  commentId: N:Oscars.Backend.Dtos
+  href: Oscars.html
+  name: Oscars.Backend.Dtos
+  nameWithType: Oscars.Backend.Dtos
+  fullName: Oscars.Backend.Dtos
+  spec.csharp:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Backend
+    name: Backend
+    href: Oscars.Backend.html
+  - name: .
+  - uid: Oscars.Backend.Dtos
+    name: Dtos
+    href: Oscars.Backend.Dtos.html
+  spec.vb:
+  - uid: Oscars
+    name: Oscars
+    href: Oscars.html
+  - name: .
+  - uid: Oscars.Backend
+    name: Backend
+    href: Oscars.Backend.html
+  - name: .
+  - uid: Oscars.Backend.Dtos
+    name: Dtos
+    href: Oscars.Backend.Dtos.html

@@ -1,6 +1,0 @@
-@Oscars_HostAddress = http://localhost:5166
-
-GET {{Oscars_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
