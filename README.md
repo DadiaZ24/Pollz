@@ -26,15 +26,18 @@ Follow these steps to set up and run the project locally:
 
 1. Clone the repository:
    ```bash
-   git clone git@github.com:DadiaZ24/Pollz.git```
+   git clone git@github.com:DadiaZ24/Pollz.git
+   ```
 2. Run the Backend:
    ```bash
-   dotnet run```
+   dotnet run
+   ```
 3. In another terminal, navigate to the Frontend directory, install dependencies, and start the development server:
    ```bash
    cd Frontend
    npm install
-   npm run dev```
+   npm run dev
+   ```
 
 <div align="center" text-size=20px>
 
